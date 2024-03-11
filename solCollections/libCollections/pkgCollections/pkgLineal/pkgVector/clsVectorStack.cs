@@ -4,7 +4,7 @@ using pkgServicies.pkgCollections.pkgLineal.pkgInterfaces;
 
 namespace pkgServicies.pkgCollections.pkgLineal.pkgVector
 {
-    internal class clsVectorStack<T> :clsADTVector<T>, iStack<T>  where T : IComparable<T>
+    public class clsVectorStack<T> :clsADTVector<T>, iStack<T>  where T : IComparable<T>
     {
         #region Builders
         public clsVectorStack(int prmCapacity)
@@ -13,7 +13,6 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector
         }
         public clsVectorStack()
         {
-            throw new NotImplementedException();
         }
         #endregion
         #region CRUDs

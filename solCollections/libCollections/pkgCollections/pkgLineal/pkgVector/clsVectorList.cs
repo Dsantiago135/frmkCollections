@@ -4,7 +4,7 @@ using System;
 
 namespace pkgServicies.pkgCollections.pkgLineal.pkgVector
 {
-    internal class clsVectorList<T> : clsADTVector<T>, iList<T> where T : IComparable<T>
+    public class clsVectorList<T> : clsADTVector<T>, iList<T> where T : IComparable<T>
     {
         #region Builders
         public clsVectorList(int prmCapacity)
@@ -13,7 +13,6 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector
         }
         public clsVectorList()
         {
-            throw new NotImplementedException();
         }
         #endregion
         #region CRUDs

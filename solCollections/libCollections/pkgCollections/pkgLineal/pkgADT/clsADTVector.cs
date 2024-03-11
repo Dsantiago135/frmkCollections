@@ -3,7 +3,7 @@ using System;
 
 namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
 {
-    internal class clsADTVector<T>: clsADTLineal<T>,iADTVector<T> where T : IComparable<T>
+    public class clsADTVector<T>: clsADTLineal<T>,iADTVector<T> where T : IComparable<T>
     {
         #region Attributes
         protected int attCapacity = 100;
@@ -25,11 +25,11 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
         #region Getters
         public int opGetCapacity()
         {
-            throw new NotImplementedException();
+            return attCapacity;
         }
         public int opGetGrowingFactor()
         {
-            throw new NotImplementedException();
+            return attGrowingFactor;
         }
         #endregion
         #region Setters
@@ -44,6 +44,10 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
         #endregion
         #region Query
         public bool opItsFull()
+        {
+            throw new NotImplementedException();
+        }
+        public bool opItsFlexible()
         {
             throw new NotImplementedException();
         }

@@ -4,7 +4,7 @@ using System;
 
 namespace pkgServicies.pkgCollections.pkgLineal.pkgVector
 {
-    internal class clsVectorQueue<T> : clsADTVector<T>, iQueue<T> where T : IComparable<T>
+    public class clsVectorQueue<T> : clsADTVector<T>, iQueue<T> where T : IComparable<T>
     {
         #region Buliders
         public clsVectorQueue(int prmcapacit)
@@ -13,7 +13,6 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector
         }
         public clsVectorQueue()
         {
-            throw new NotImplementedException();
         }
         #endregion
         #region CRUDs

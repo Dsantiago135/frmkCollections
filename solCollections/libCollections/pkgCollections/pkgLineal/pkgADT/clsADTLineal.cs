@@ -3,18 +3,18 @@ using System;
 
 namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
 {
-    internal class clsADTLineal<T>: iADTLineal<T> where T : IComparable<T>
+    public class clsADTLineal<T>: iADTLineal<T> where T : IComparable<T>
     {
         #region Attributes
         protected int attLength = 0;
-        protected bool itsOrdenedAscending = false;
-        protected bool itsOrdenedDescending = false;
+        protected bool attitsOrdenedAscending = false;
+        protected bool attitsOrdenedDescending = false;
         #endregion
         #region Operations
         #region Getters
         public int opGetLength()
         {
-            throw new NotImplementedException();
+            return attLength;
         }
         #endregion
         #region Query
@@ -33,6 +33,15 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
         public bool opItsEmpty()
         {
             throw new NotImplementedException();
+        }
+        public bool opItsorderAscending()
+        {
+            return attitsOrdenedAscending;
+        }
+
+        public bool opItsorderDescending()
+        {
+            return attitsOrdenedDescending;
         }
         #endregion
         #region Serialize/Deserialize
