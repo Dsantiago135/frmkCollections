@@ -19,7 +19,6 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
         }
         protected clsADTVector()
         {
-            throw new NotImplementedException();
         }
         #endregion
         #region Getters
