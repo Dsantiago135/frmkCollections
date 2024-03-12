@@ -13,16 +13,66 @@ namespace uTestCollections
         public void testDefaultConstructor()
         {
             #region Setup
+
             #endregion
             #region Test & Assert
             testMyStack = new clsVectorStack<int>();
-            Assert.AreEqual(0,testMyStack.opGetLength());
+            Assert.AreEqual(0, testMyStack.opGetLength());
             Assert.IsFalse(testMyStack.opItsorderAscending());
             Assert.IsFalse(testMyStack.opItsorderDescending());
-            Assert.AreEqual(100,testMyStack.opGetCapacity());
-            CollectionAssert.AreEqual(new int[100],testMyStack.opToArray());
+            Assert.AreEqual(100, testMyStack.opGetCapacity());
+            CollectionAssert.AreEqual(new int[100], testMyStack.opToArray());
             Assert.IsFalse(testMyStack.opItsFlexible());
-            Assert.AreEqual(100,testMyStack.opGetGrowingFactor());
+            Assert.AreEqual(100, testMyStack.opGetGrowingFactor());
+            #endregion            
+        }
+        [TestMethod]
+        public void testValidCapacityConstructor()
+        {
+            #region Setup
+
+            #endregion
+            #region Test & Assert
+            testMyStack = new clsVectorStack<int>(10);
+            Assert.AreEqual(0, testMyStack.opGetLength());
+            Assert.IsFalse(testMyStack.opItsorderAscending());
+            Assert.IsFalse(testMyStack.opItsorderDescending());
+            Assert.AreEqual(10, testMyStack.opGetCapacity());
+            CollectionAssert.AreEqual(new int[10], testMyStack.opToArray());
+            Assert.IsFalse(testMyStack.opItsFlexible());
+            Assert.AreEqual(100, testMyStack.opGetGrowingFactor());
+            #endregion
+        }
+        [TestMethod]
+        public void testNegativeCapacityConstructor()
+        {
+            #region Setup
+            #endregion
+            #region Test & Assert
+            testMyStack = new clsVectorStack<int>(-1);
+            Assert.AreEqual(0, testMyStack.opGetLength());
+            Assert.IsFalse(testMyStack.opItsorderAscending());
+            Assert.IsFalse(testMyStack.opItsorderDescending());
+            Assert.AreEqual(100, testMyStack.opGetCapacity());
+            CollectionAssert.AreEqual(new int[100], testMyStack.opToArray());
+            Assert.IsFalse(testMyStack.opItsFlexible());
+            Assert.AreEqual(100, testMyStack.opGetGrowingFactor());
+            #endregion
+        }
+        [TestMethod]
+        public void testOverFLowCapacityConstructor() 
+        {
+            #region Setup
+            #endregion
+            #region Test & Assert
+            testMyStack = new clsVectorStack<int>(int.MaxValue);
+            Assert.AreEqual(0, testMyStack.opGetLength());
+            Assert.IsFalse(testMyStack.opItsorderAscending());
+            Assert.IsFalse(testMyStack.opItsorderDescending());
+            Assert.AreEqual(100, testMyStack.opGetCapacity());
+            CollectionAssert.AreEqual(new int[100], testMyStack.opToArray());
+            Assert.IsFalse(testMyStack.opItsFlexible());
+            Assert.AreEqual(100, testMyStack.opGetGrowingFactor());
             #endregion
         }
     }

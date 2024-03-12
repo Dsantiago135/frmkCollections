@@ -7,11 +7,10 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector
     public class clsVectorStack<T> :clsADTVector<T>, iStack<T>  where T : IComparable<T>
     {
         #region Builders
-        public clsVectorStack(int prmCapacity)
-        {
-            throw new NotImplementedException();
-        }
         public clsVectorStack()
+        {
+        }
+        public clsVectorStack(int prmCapacity) : base(prmCapacity)
         {
         }
         #endregion

@@ -7,12 +7,12 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector
     public class clsVectorList<T> : clsADTVector<T>, iList<T> where T : IComparable<T>
     {
         #region Builders
+        public clsVectorList()
+        {
+        }
         public clsVectorList(int prmCapacity)
         {
             throw new NotImplementedException();
-        }
-        public clsVectorList()
-        {
         }
         #endregion
         #region CRUDs

@@ -7,12 +7,12 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector
     public class clsVectorQueue<T> : clsADTVector<T>, iQueue<T> where T : IComparable<T>
     {
         #region Buliders
+        public clsVectorQueue()
+        {
+        }
         public clsVectorQueue(int prmcapacit)
         {
             throw new NotImplementedException();
-        }
-        public clsVectorQueue()
-        {
         }
         #endregion
         #region CRUDs

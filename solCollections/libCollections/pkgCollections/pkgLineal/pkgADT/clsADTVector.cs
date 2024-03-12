@@ -13,12 +13,26 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
         #endregion
         #region Operations
         #region Builders
-        protected clsADTVector(int attCapacity)
-        {
-            throw new NotImplementedException();
-        }
         protected clsADTVector()
         {
+        }
+        protected clsADTVector(int prmCapacity)
+        {
+            try
+            {
+                attCapacity = prmCapacity;
+                attItems = new T[attCapacity];
+            }
+            catch (Exception e)
+            {
+                attLength = 0;
+                attitsOrdenedAscending = false;
+                attitsOrdenedDescending = false;
+                attCapacity = 100;
+                attItems = new T[100];
+                attItsFlexible = false;
+                attGrowingFactor = 100;
+            }
         }
         #endregion
         #region Getters
