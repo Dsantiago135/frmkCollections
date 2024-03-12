@@ -25,10 +25,13 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector
         }
         public bool opPush(T prmItem)
         {
-            if (int i = 0;i < attLength;i ++)
+            int i = 0;
+            if (i < attLength)
             {
-
+                attItems[i] = attItems[i+1];
+                i++;
             }
+            attLength++;
             attItems[0] = prmItem;
             return true;
         }
