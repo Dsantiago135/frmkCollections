@@ -38,7 +38,6 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
         {
             return attitsOrdenedAscending;
         }
-
         public bool opItsorderDescending()
         {
             return attitsOrdenedDescending;

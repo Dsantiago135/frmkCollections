@@ -62,7 +62,7 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
         }
         public bool opItsFlexible()
         {
-            throw new NotImplementedException();
+            return attItsFlexible;
         }
         #endregion 
         #endregion
