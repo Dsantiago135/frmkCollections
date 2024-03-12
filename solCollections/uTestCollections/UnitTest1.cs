@@ -75,5 +75,40 @@ namespace uTestCollections
             Assert.AreEqual(100, testMyStack.opGetGrowingFactor());
             #endregion
         }
+        [TestMethod]
+        public void testZeroCapacityConstructor() 
+        {
+            #region Setup
+
+            #endregion
+            #region Test & Assert
+            testMyStack = new clsVectorStack<int>(0);
+            Assert.AreEqual(0, testMyStack.opGetLength());
+            Assert.IsFalse(testMyStack.opItsorderAscending());
+            Assert.IsFalse(testMyStack.opItsorderDescending());
+            Assert.AreEqual(100, testMyStack.opGetCapacity());
+            CollectionAssert.AreEqual(new int[100], testMyStack.opToArray());
+            Assert.IsFalse(testMyStack.opItsFlexible());
+            Assert.AreEqual(100, testMyStack.opGetGrowingFactor());
+            #endregion  
+        }
+        [TestMethod]
+        public void testPush() 
+        {
+            #region Setup
+            testMyStack=new clsVectorStack<int>();
+            #endregion
+            #region Test & Assert
+            Assert.IsTrue (testMyStack.opPush(123));
+            Assert.AreEqual(1,testMyStack.opGetLength());
+            Assert.IsFalse(testMyStack.opItsorderAscending());
+            Assert.IsFalse(testMyStack.opItsorderDescending());
+            Assert.AreEqual(100,testMyStack.opGetCapacity());
+            CollectionAssert.AreEqual(new int[100],testMyStack.opToArray());
+            Assert.IsFalse(testMyStack.opItsFlexible());
+            Assert.AreEqual(100,testMyStack.opGetGrowingFactor());
+            Assert.AreEqual(123, testMyStack.opToArray()[0]);
+            #endregion
+        }
     }
 }

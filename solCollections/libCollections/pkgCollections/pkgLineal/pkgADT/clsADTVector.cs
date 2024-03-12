@@ -44,6 +44,10 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
         {
             return attGrowingFactor;
         }
+        public int opGetAvailableCapacity() 
+        {
+            return attCapacity - attLength;
+        }
         #endregion
         #region Setters
         public bool opSetCapacity(int prmValue)
