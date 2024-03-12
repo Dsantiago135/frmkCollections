@@ -44,7 +44,7 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
         }
         #endregion
         #region Serialize/Deserialize
-        public T[] opToArray()
+        public virtual T[] opToArray()
         {
             throw new NotImplementedException();
         }
