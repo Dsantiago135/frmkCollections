@@ -11,7 +11,9 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgInterfaces
         int opFind(T prmItem);
         bool opExists(T prmItem);
         bool opItsEmpty();
-        bool opIsValidIndex(int index); 
+        bool opIsValidIndex(int index);
+        bool opItsorderAscending();
+        bool opItsorderDescending();
         #endregion
         #region Serialize/Deserialize
         T[] opToArray();

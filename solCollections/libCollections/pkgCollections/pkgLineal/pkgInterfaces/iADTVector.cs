@@ -5,16 +5,17 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgInterfaces
     internal interface iADTVector<T> where T : IComparable<T>
     {
         #region Getters
-        int opGetCapacity();
-        int opGetGrowingFactor();
+        int opGetTotalCapacity();
         int opGetAvailableCapacity();
+        int opGetGrowingFactor();
         #endregion
         #region Setters
-        bool opSetCapacity(int prmValue);
+        bool opSetTotalCapacity(int prmValue);
         bool opSetGrowingFactor(int prmValue);
         #endregion
         #region Query
-        bool opItsFull(); 
+        bool opItsFull();
+        bool opItsFlexible();
         #endregion
     }
 }

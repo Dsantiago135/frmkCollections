@@ -6,7 +6,8 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
     public class clsADTVector<T> : clsADTLineal<T>, iADTVector<T> where T : IComparable<T>
     {
         #region Attributes
-        protected int attCapacity = 100;
+        protected int attTotalCapacity = 100;
+        protected static int attMaxCapacity = int.MaxValue/16;
         protected T[] attItems = new T[100];
         protected bool attItsFlexible = false;
         protected int attGrowingFactor = 100;
@@ -20,15 +21,16 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
         {
             try
             {
-                attCapacity = prmCapacity;
-                attItems = new T[attCapacity];
+                if (prmCapacity == attMaxCapacity) attGrowingFactor = 0;
+                attTotalCapacity = prmCapacity;
+                attItems = new T[prmCapacity];
             }
             catch (Exception e)
             {
                 attLength = 0;
                 attitsOrdenedAscending = false;
                 attitsOrdenedDescending = false;
-                attCapacity = 100;
+                attTotalCapacity = 100;
                 attItems = new T[100];
                 attItsFlexible = false;
                 attGrowingFactor = 100;
@@ -36,9 +38,13 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
         }
         #endregion
         #region Getters
-        public int opGetCapacity()
+        public int opGetTotalCapacity()
         {
-            return attCapacity;
+            return attTotalCapacity;
+        }
+        public static int opGetMaxCapacity()
+        {
+            return attMaxCapacity;
         }
         public int opGetGrowingFactor()
         {
@@ -46,7 +52,7 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
         }
         public int opGetAvailableCapacity()
         {
-            return attCapacity - attLength;
+            return attTotalCapacity - attLength;
         }
         public override T[] opToArray()
         {
@@ -54,13 +60,15 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
         }
         #endregion
         #region Setters
-        public bool opSetCapacity(int prmValue)
+        public bool opSetTotalCapacity(int prmValue)
         {
-            throw new NotImplementedException();
+            this.attTotalCapacity = prmValue;
+            return true;
         }
         public bool opSetGrowingFactor(int prmValue)
         {
-            throw new NotImplementedException();
+            this.attGrowingFactor = prmValue;
+            return true;
         }
         #endregion
         #region Query
