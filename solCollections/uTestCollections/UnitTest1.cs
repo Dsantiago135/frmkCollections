@@ -162,5 +162,105 @@ namespace uTestCollections
             #region Test & Assert
             #endregion
         }
+        [TestMethod]
+        public void testPushLastItem()
+        {
+            #region Setup
+
+            #endregion
+            #region Test & Assert
+
+            #endregion
+        }
+        [TestMethod]
+        public void testPushNextItemWithFullFlexibleCollection()
+        {
+            #region Setup
+
+            #endregion
+            #region Test & Assert
+
+            #endregion
+        }
+        [TestMethod]
+        public void testPushNextItemWithFullNoFlexibleCollection()
+        {
+            #region Setup
+
+            #endregion
+            #region Test & Assert
+
+            #endregion
+        }
+        [TestMethod]
+        public void testPushNextItemWithHugeFullFlexibleCollection()
+        {
+            #region Setup
+
+            #endregion
+            #region Test & Assert
+
+            #endregion
+        }
+        [TestMethod]
+        public void testPopNextItem()
+        {
+            #region Setup
+
+            #endregion
+            #region Test & Assert
+
+            #endregion
+        }
+        [TestMethod]
+        public void testPopWithEmptyCollection()
+        {
+            #region Setup
+
+            #endregion
+            #region Test & Assert
+
+            #endregion
+        }
+        [TestMethod]
+        public void testPopWithFullCollection()
+        {
+            #region Setup
+
+            #endregion
+            #region Test & Assert
+
+            #endregion
+        }
+        [TestMethod]
+        public void testPeekNextItem()
+        {
+            #region Setup
+
+            #endregion
+            #region Test & Assert
+
+            #endregion
+        }
+        [TestMethod]
+        public void testPeekWithEmptyCollection()
+        {
+            #region Setup
+
+            #endregion
+            #region Test & Assert
+
+            #endregion
+        }
+        [TestMethod]
+        public void testPeekWithFullCollection()
+        {
+            #region Setup
+
+            #endregion
+            #region Test & Assert
+
+            #endregion
+        }
     }
 }
