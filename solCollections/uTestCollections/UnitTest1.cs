@@ -294,13 +294,13 @@ namespace uTestCollections
         {
             #region Setup
             testMyStack = new clsVectorStack<int>();
-            testMyStack.opToItems(new int[4] { 1, 2, 3, 4 });
+            testMyStack.opToItems(new int[4] { 1, 2, 3, 4 },4);
             testExpectedItems = new int[4] { 2, 3, 4, 4 };
             testExpectedItem = default;
             #endregion
             #region Test & Assert
             Assert.IsTrue(testMyStack.opPop(ref testExpectedItem));
-            Assert.AreEqual(1, testExpectedItems);
+            Assert.AreEqual(1, testExpectedItem);
             Assert.AreEqual(3, testMyStack.opGetLength());
             Assert.IsFalse(testMyStack.opItsorderAscending());
             Assert.IsFalse(testMyStack.opItsorderDescending());
@@ -321,7 +321,7 @@ namespace uTestCollections
             #endregion
             #region Test & Assert
             Assert.IsFalse(testMyStack.opPop(ref testExpectedItem));
-            Assert.AreEqual(default, testExpectedItems);
+            Assert.AreEqual(default, testExpectedItem);
             Assert.AreEqual(0, testMyStack.opGetLength());
             Assert.IsFalse(testMyStack.opItsorderAscending());
             Assert.IsFalse(testMyStack.opItsorderDescending());
@@ -343,7 +343,7 @@ namespace uTestCollections
             #endregion
             #region Test & Assert
             Assert.IsTrue(testMyStack.opPop(ref testExpectedItem));
-            Assert.AreEqual(1, testExpectedItems);
+            Assert.AreEqual(1, testExpectedItem);
             Assert.AreEqual(2, testMyStack.opGetLength());
             Assert.IsFalse(testMyStack.opItsorderAscending());
             Assert.IsFalse(testMyStack.opItsorderDescending());

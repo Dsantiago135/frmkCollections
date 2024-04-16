@@ -15,26 +15,54 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector
         }
         #endregion
         #region CRUDs
+        public bool opPush(T prmItem)
+        {
+            if (opGetLength() != opGetTotalCapacity())
+            {
+                if (opGetLength() != 0)
+                {
+                    int i = 0;
+                    int varIdx = attLength;
+                    do
+                    {
+                        attItems[varIdx] = attItems[varIdx - 1];
+                        varIdx--;
+                        i++;
+                    } while (i<opGetLength());
+                    attItems[0] = prmItem;
+                    attLength++;
+                }
+                else
+                {
+                    attItems[0] = prmItem;
+                    attLength++;
+                }
+            }
+            else return false;
+            return true;
+        }
         public bool opPeek(ref T prmItem)
         {
             throw new NotImplementedException();
         }
         public bool opPop(ref T prmItem)
         {
-            throw new NotImplementedException();
-        }
-        public bool opPush(T prmItem)
-        {
-            int i = 0;
-            if (i < attLength)
+            if (attLength != 0)
             {
-                attItems[i] = attItems[i+1];
-                i++;
+                prmItem= attItems[0];
+                int varCount = 0;
+                do
+                {
+                    attItems[varCount] = attItems[varCount + 1];
+                    varCount++;
+                } while (varCount < opGetLength());
+
+                attLength--;
             }
-            attLength++;
-            attItems[0] = prmItem;
+            else return false;
             return true;
         }
+
         #endregion
     }
 }

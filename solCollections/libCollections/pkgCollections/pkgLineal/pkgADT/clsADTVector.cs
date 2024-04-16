@@ -103,8 +103,6 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
         #region
         public bool opCapacityIncrease()
         {
-            if (!attItsFlexible) return false;
-
             return true;
         }
         #endregion
