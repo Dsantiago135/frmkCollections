@@ -99,7 +99,15 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
         {
             return attItsFlexible;
         }
-        #endregion 
+        #endregion
+        #region
+        public bool opCapacityIncrease()
+        {
+            if (!attItsFlexible) return false;
+
+            return true;
+        }
+        #endregion
         #endregion
     }
 }

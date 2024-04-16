@@ -23,5 +23,8 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgInterfaces
         bool opItsFull();
         bool opItsFlexible();
         #endregion
+        #region Utilities
+        bool opCapacityIncrease();
+        #endregion
     }
 }
