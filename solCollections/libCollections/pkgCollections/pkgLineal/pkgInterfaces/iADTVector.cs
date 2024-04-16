@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace pkgServicies.pkgCollections.pkgLineal.pkgInterfaces
 {
@@ -12,6 +13,11 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgInterfaces
         #region Setters
         bool opSetTotalCapacity(int prmValue);
         bool opSetGrowingFactor(int prmValue);
+        bool opSetFlexible();
+        bool opSetInFlexible();
+        #endregion
+        #region Serialize/Deserialize
+        bool opToItems(T[] prmArray,int prmItemsCount);
         #endregion
         #region Query
         bool opItsFull();

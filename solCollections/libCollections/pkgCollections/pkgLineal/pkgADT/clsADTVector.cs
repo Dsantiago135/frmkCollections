@@ -25,7 +25,7 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
                 attTotalCapacity = prmCapacity;
                 attItems = new T[prmCapacity];
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 attLength = 0;
                 attitsOrdenedAscending = false;
@@ -54,9 +54,18 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
         {
             return attTotalCapacity - attLength;
         }
+        #endregion
+        #region Serialize/Deserialize
         public override T[] opToArray()
         {
             return attItems;
+        }
+        public override bool opToItems(T[] prmArray, int prmItemsCount)
+        {
+            attItems= prmArray;
+            attTotalCapacity = prmArray.Length;
+            attLength= prmItemsCount;
+            return true;
         }
         #endregion
         #region Setters
@@ -68,6 +77,16 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
         public bool opSetGrowingFactor(int prmValue)
         {
             this.attGrowingFactor = prmValue;
+            return true;
+        }
+        public bool opSetFlexible()
+        {
+            attItsFlexible= true;
+            return true;
+        }
+        public bool opSetInFlexible()
+        {
+            attItsFlexible = false;
             return true;
         }
         #endregion
