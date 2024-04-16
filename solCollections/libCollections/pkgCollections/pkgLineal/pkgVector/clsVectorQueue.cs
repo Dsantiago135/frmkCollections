@@ -10,9 +10,8 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector
         public clsVectorQueue()
         {
         }
-        public clsVectorQueue(int prmcapacit)
+        public clsVectorQueue(int prmCapacity) : base(prmCapacity)
         {
-            throw new NotImplementedException();
         }
         #endregion
         #region CRUDs
