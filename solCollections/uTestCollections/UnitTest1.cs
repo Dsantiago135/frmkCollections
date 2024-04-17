@@ -387,7 +387,7 @@ namespace uTestCollections
             testExpectedItem = default;
             #endregion
             #region Test & Assert
-            Assert.IsFalse(testMyStack.opPop(ref testExpectedItem));
+            Assert.IsFalse(testMyStack.opPeek(ref testExpectedItem));
             Assert.AreEqual(default, testExpectedItem);
             Assert.AreEqual(0, testMyStack.opGetLength());
             Assert.IsFalse(testMyStack.opItsorderAscending());

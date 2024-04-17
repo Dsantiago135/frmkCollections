@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.Eventing.Reader;
 using pkgServicies.pkgCollections.pkgLineal.pkgADT;
 using pkgServicies.pkgCollections.pkgLineal.pkgInterfaces;
 
@@ -38,7 +39,24 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector
                     attLength++;
                 }
             }
-            else return false;
+            else if (!opItsFlexible())
+            {
+                return false;
+            }
+            else
+            {
+                opIncreaseCapacity();
+                int i = 0;
+                int varIdx = attLength;
+                do
+                {
+                    attItems[varIdx] = attItems[varIdx - 1];
+                    varIdx--;
+                    i++;
+                } while (i < opGetLength());
+                attItems[0] = prmItem;
+                attLength++;
+            }
             return true;
         }
         public bool opPeek(ref T prmItem)

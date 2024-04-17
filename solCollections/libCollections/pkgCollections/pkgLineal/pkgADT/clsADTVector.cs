@@ -1,4 +1,5 @@
 ﻿using pkgServicies.pkgCollections.pkgLineal.pkgInterfaces;
+using pkgServicies.pkgCollections.pkgLineal.pkgVector;
 using System;
 
 namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
@@ -21,9 +22,19 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
         {
             try
             {
-                if (prmCapacity == attMaxCapacity) attGrowingFactor = 0;
-                attTotalCapacity = prmCapacity;
-                attItems = new T[prmCapacity];
+                if (prmCapacity <= attMaxCapacity && prmCapacity!=0)
+                {
+                    if (prmCapacity < opGetMaxCapacity() - 100)
+                    {
+                        attGrowingFactor = 100;
+                    }
+                    else
+                    {
+                        attGrowingFactor = opGetMaxCapacity() - prmCapacity;
+                    }
+                    attTotalCapacity = prmCapacity;
+                    attItems = new T[prmCapacity];
+                }
             }
             catch (Exception)
             {
@@ -59,6 +70,16 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
         public override T[] opToArray()
         {
             return attItems;
+        }
+        public override bool opToItems(T[] prmArray)
+        {
+            int varCount = 0;
+            do
+            {
+                attItems[varCount] = prmArray[varCount];
+                varCount++;
+            }while (varCount<prmArray.Length);
+            return true;
         }
         public override bool opToItems(T[] prmArray, int prmItemsCount)
         {
@@ -100,9 +121,15 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
             return attItsFlexible;
         }
         #endregion
-        #region
-        public bool opCapacityIncrease()
+        #region Utilities
+        public bool opIncreaseCapacity()
         {
+            T[]varCopyArray= attItems;
+            attTotalCapacity = varCopyArray.Length + attGrowingFactor;
+            attLength= varCopyArray.Length;
+            clsADTVector<T> varNewArray =new clsADTVector<T>(attTotalCapacity);
+            varNewArray.opToItems(varCopyArray);
+            attItems = varNewArray.opToArray();
             return true;
         }
         #endregion

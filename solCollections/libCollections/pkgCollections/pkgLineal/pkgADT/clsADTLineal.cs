@@ -48,7 +48,7 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
         {
             throw new NotImplementedException();
         }
-        public bool opToItems(T[] prmArray)
+        public virtual bool opToItems(T[] prmArray)
         {
             throw new NotImplementedException();
         }
