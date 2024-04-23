@@ -35,11 +35,11 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
         {
             throw new NotImplementedException();
         }
-        public bool opItsorderAscending()
+        public bool opItsOrderedAscending()
         {
             return attitsOrdenedAscending;
         }
-        public bool opItsorderDescending()
+        public bool opItsOrderedDescending()
         {
             return attitsOrdenedDescending;
         }
