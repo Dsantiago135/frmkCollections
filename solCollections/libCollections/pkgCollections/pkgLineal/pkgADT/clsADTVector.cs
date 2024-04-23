@@ -73,12 +73,9 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
         }
         public override bool opToItems(T[] prmArray)
         {
-            int varCount = 0;
-            do
-            {
-                attItems[varCount] = prmArray[varCount];
-                varCount++;
-            }while (varCount<prmArray.Length);
+            attItems = prmArray;
+            attLength = prmArray.Length;
+            attTotalCapacity = prmArray.Length;
             return true;
         }
         public override bool opToItems(T[] prmArray, int prmItemsCount)
@@ -127,9 +124,9 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
             T[]varCopyArray= attItems;
             attTotalCapacity = varCopyArray.Length + attGrowingFactor;
             attLength= varCopyArray.Length;
-            clsADTVector<T> varNewArray =new clsADTVector<T>(attTotalCapacity);
-            varNewArray.opToItems(varCopyArray);
-            attItems = varNewArray.opToArray();
+            attItems = new T[attTotalCapacity];
+            //falta poner los items de copia en el attItems
+            if (opGetTotalCapacity() == opGetMaxCapacity()) attItsFlexible = false;
             return true;
         }
         #endregion

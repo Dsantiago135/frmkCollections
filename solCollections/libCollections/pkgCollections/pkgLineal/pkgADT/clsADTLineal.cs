@@ -1,5 +1,6 @@
 ﻿using pkgServicies.pkgCollections.pkgLineal.pkgInterfaces;
 using System;
+using System.CodeDom;
 
 namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
 {
@@ -64,13 +65,17 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
         #region CRUD
         public bool opModify(int prmIdx, T prmItem)
         {
+            //if (!opGo(prmIdx)) return false;
+            //return opSetCurrentItem(prmItem);
             throw new NotImplementedException();
         }
         public bool opRetrieve(int prmIdx, ref T prmItem)
         {
+            //    if (!opGo(prmIdx)) return false;
+            //    prmItem = opToArray()[prmIdx];
+            //    return true;
             throw new NotImplementedException();
         }
-
         public bool opToItems(T prmArray)
         {
             throw new NotImplementedException();

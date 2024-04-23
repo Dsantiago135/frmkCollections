@@ -16,7 +16,8 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgInterfaces
         bool opSetFlexible();
         bool opSetInFlexible();
         #endregion
-        #region Serialize/Deserialize
+        #region Serialize/Deserialize 
+        bool opToItems(T[] prmArray);
         bool opToItems(T[] prmArray,int prmItemsCount);
         #endregion
         #region Query
