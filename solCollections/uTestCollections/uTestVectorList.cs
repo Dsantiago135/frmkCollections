@@ -283,14 +283,14 @@ namespace uTestCollections
             #region Test & Assert
             Assert.IsFalse(testMyList.opRemove(-1, ref testExpectedItem));
             Assert.AreEqual(default, testExpectedItem);
-            Assert.AreEqual(3, testMyList.opGetLength());
+            Assert.AreEqual(4, testMyList.opGetLength());
             Assert.IsFalse(testMyList.opItsOrderedAscending());
             Assert.IsFalse(testMyList.opItsOrderedDescending());
             Assert.AreEqual(4, testMyList.opGetTotalCapacity());
             CollectionAssert.AreEqual(testExpectedItems, testMyList.opToArray());
             Assert.IsFalse(testMyList.opItsFlexible());
             Assert.AreEqual(100, testMyList.opGetGrowingFactor());
-            Assert.AreEqual(1, testMyList.opGetAvailableCapacity());
+            Assert.AreEqual(0, testMyList.opGetAvailableCapacity());
             #endregion
             }
         [TestMethod]
@@ -305,14 +305,14 @@ namespace uTestCollections
             #region Test & Assert
             Assert.IsFalse(testMyList.opRemove(testMyList.opGetLength(), ref testExpectedItem));
             Assert.AreEqual(default, testExpectedItem);
-            Assert.AreEqual(3, testMyList.opGetLength());
+            Assert.AreEqual(4, testMyList.opGetLength());
             Assert.IsFalse(testMyList.opItsOrderedAscending());
             Assert.IsFalse(testMyList.opItsOrderedDescending());
             Assert.AreEqual(4, testMyList.opGetTotalCapacity());
             CollectionAssert.AreEqual(testExpectedItems, testMyList.opToArray());
             Assert.IsFalse(testMyList.opItsFlexible());
             Assert.AreEqual(100, testMyList.opGetGrowingFactor());
-            Assert.AreEqual(1, testMyList.opGetAvailableCapacity());
+            Assert.AreEqual(0, testMyList.opGetAvailableCapacity());
             #endregion
             }
         [TestMethod]
