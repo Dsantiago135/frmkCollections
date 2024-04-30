@@ -18,45 +18,18 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector
         #region CRUDs
         public bool opPush(T prmItem)
         {
-            if (opGetLength() != opGetTotalCapacity())
+            if (attLength == attMaxCapacity) return false;
+            if (attTotalCapacity == attLength && !attItsFlexible) return false;
+            if (attTotalCapacity == attLength) opIncreaseCapacity();
+
+            int varIdx = attLength;
+            for (int i = 0; i < attLength; i++)
             {
-                if (opGetLength() != 0)
-                {
-                    int i = 0;
-                    int varIdx = attLength;
-                    do
-                    {
-                        attItems[varIdx] = attItems[varIdx - 1];
-                        varIdx--;
-                        i++;
-                    } while (i<attLength);
-                    attItems[0] = prmItem;
-                    attLength++;
-                }
-                else
-                {
-                    attItems[0] = prmItem;
-                    attLength++;
-                }
+                attItems[varIdx] = attItems[varIdx - 1];
+                varIdx--;
             }
-            else if (!opItsFlexible())
-            {
-                return false;
-            }
-            else
-            {
-                opIncreaseCapacity();
-                int i = 0;
-                int varIdx = attLength;
-                do
-                {
-                    attItems[varIdx] = attItems[varIdx - 1];
-                    varIdx--;
-                    i++;
-                } while (i < opGetLength());
-                attItems[0] = prmItem;
-                attLength++;
-            }
+            attItems[0] = prmItem;
+            attLength++;
             return true;
         }
         public bool opPeek(ref T prmItem)
@@ -66,19 +39,12 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector
         public bool opPop(ref T prmItem)
         {
             if (attLength == 0) return false;
-            prmItem = attItems[0];
-            int varCount = 0;
-            
+            prmItem = attItems[0];           
             if (attLength > 1) {
                 for (int idx = 0; idx < attLength - 1; idx++)
                 {
                     attItems[idx] = attItems[idx + 1];
                 }
-                //do
-                //{
-                //    attItems[varCount] = attItems[varCount + 1];
-                //    varCount++;
-                //} while (varCount < attLength);
             }
             attLength--;
             return true;

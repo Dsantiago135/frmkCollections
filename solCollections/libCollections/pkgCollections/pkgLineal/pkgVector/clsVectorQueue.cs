@@ -35,7 +35,13 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector
         }
         public bool opPush(T prmItem)
         {
-            throw new NotImplementedException();
+            if (attLength == attMaxCapacity) return false;
+            if (attTotalCapacity == attLength && !attItsFlexible) return false;
+            if (attTotalCapacity == attLength) opIncreaseCapacity();
+
+            attItems[attLength] = prmItem;
+            attLength++;
+            return true;
         }
         #endregion
     }

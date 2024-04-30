@@ -132,12 +132,12 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
             attTotalCapacity = varCopyArray.Length + attGrowingFactor;
             attLength= varCopyArray.Length;
             attItems = new T[attTotalCapacity];
-            int varCount= 0;
-            do
+            for (int i = 0; i < varCopyArray.Length; i++)
             {
-                attItems[varCount] = varCopyArray[varCount];
-            } while (varCount < varCopyArray.Length);
-            if (opGetTotalCapacity() == opGetMaxCapacity()) attItsFlexible = false;
+                attItems[i] = varCopyArray[i];
+            }
+            if (attTotalCapacity > attMaxCapacity - 100) attGrowingFactor = attMaxCapacity - attTotalCapacity;
+            if (attTotalCapacity == attMaxCapacity) attItsFlexible = false;
             return true;
         }
         #endregion
