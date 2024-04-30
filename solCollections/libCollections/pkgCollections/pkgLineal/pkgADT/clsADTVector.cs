@@ -93,6 +93,16 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
             return true;
         }
         #endregion
+        #region Iterator
+        public override bool opGo(int prmIdx)
+        {
+            if (0>prmIdx) return false;
+            if (prmIdx>=attLength)return false;
+            attCurrentIdx = prmIdx;
+            attCurrentItem = attItems[prmIdx];
+            return true;
+        }
+        #endregion
         #region Setters
         public bool opSetTotalCapacity(int prmValue)
         {
@@ -123,6 +133,14 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
         public bool opItsFlexible()
         {
             return attItsFlexible;
+        }
+        #endregion
+        #region CRUDS
+        public override bool opRetrieve(int prmIdx, ref T prmItem)
+        {
+            if (!opGo(prmIdx))return false;
+                prmItem = attCurrentItem;
+            return true;
         }
         #endregion
         #region Utilities

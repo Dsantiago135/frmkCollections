@@ -1,18 +1,23 @@
 ﻿using System;
-using System.CodeDom;
-using System.Collections.Generic;
-using System.ComponentModel.Design;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace pkgServicies.pkgCollections.pkgIterator
 {
-    internal class clsIterator
+    public class clsIterator<T> where T : IComparable<T>
     {
-        public bool opGo(int prmidx)
+        #region Attributes
+        protected int attLength = 0;
+        protected int attCurrentIdx;
+        protected T attCurrentItem;
+        #endregion
+        #region Operations
+        public virtual bool opGo(int prmidx)
         {
             throw new NotImplementedException();
         }
+        public bool opIsValid(int index)
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
     }
 }

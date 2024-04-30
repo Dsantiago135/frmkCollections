@@ -1,13 +1,13 @@
-﻿using pkgServicies.pkgCollections.pkgLineal.pkgInterfaces;
+﻿using pkgServicies.pkgCollections.pkgIterator;
+using pkgServicies.pkgCollections.pkgLineal.pkgInterfaces;
 using System;
 using System.CodeDom;
 
 namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
 {
-    public class clsADTLineal<T>: iADTLineal<T> where T : IComparable<T>
+    public class clsADTLineal<T>: clsIterator<T>, iADTLineal<T> where T : IComparable<T>
     {
         #region Attributes
-        protected int attLength = 0;
         protected bool attitsOrdenedAscending = false;
         protected bool attitsOrdenedDescending = false;
         #endregion
@@ -24,10 +24,6 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
             throw new NotImplementedException();
         }
         public int opFind(T prmItem)
-        {
-            throw new NotImplementedException();
-        }
-        public bool opIsValidIndex(int index)
         {
             throw new NotImplementedException();
         }
@@ -69,14 +65,7 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
             //return opSetCurrentItem(prmItem);
             throw new NotImplementedException();
         }
-        public bool opRetrieve(int prmIdx, ref T prmItem)
-        {
-            //    if (!opGo(prmIdx)) return false;
-            //    prmItem = opToArray()[prmIdx];
-            //    return true;
-            throw new NotImplementedException();
-        }
-        public bool opToItems(T prmArray)
+        public virtual bool opRetrieve(int prmIdx, ref T prmItem)
         {
             throw new NotImplementedException();
         }

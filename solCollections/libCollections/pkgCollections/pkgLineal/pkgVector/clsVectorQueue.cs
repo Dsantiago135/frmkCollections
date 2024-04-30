@@ -17,19 +17,23 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector
         #region CRUDs
         public bool opPeek(ref T prmItem)
         {
-            throw new NotImplementedException();
+            if (attLength==0) return false;
+            prmItem = attItems[0];
+            return true;
         }
         public bool opPop(ref T prmItem)
         {
             if (attLength == 0) return false;
             prmItem = attItems[0];
-            int varCount = 0;
-            do
+            int varIterations = attLength;
+            if (attLength == attTotalCapacity) varIterations = attLength - 1;
+            if (attLength > 1)
             {
-                attItems[varCount] = attItems[varCount + 1];
-                varCount++;
-            } while (varCount < opGetLength());
-
+                for (int idx = 0; idx < varIterations; idx++)
+                {
+                    attItems[idx] = attItems[idx + 1];
+                }
+            }
             attLength--;
             return true;
         }
