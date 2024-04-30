@@ -18,7 +18,13 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector
         #region CRUDs
         public bool opAdd(T prmItem)
         {
-            throw new NotImplementedException();
+            if (attLength == attMaxCapacity) return false;
+            if (attTotalCapacity == attLength && !attItsFlexible) return false;
+            if (attTotalCapacity == attLength) opIncreaseCapacity();
+
+            attItems[attLength] = prmItem;
+            attLength++;
+            return true;
         }
         public bool opInsert(int prmIdx, T prmItem)
         {
