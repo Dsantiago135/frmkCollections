@@ -73,9 +73,16 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
         }
         public override bool opToItems(T[] prmArray)
         {
-            attItems = prmArray;
-            attLength = prmArray.Length;
-            attTotalCapacity = prmArray.Length;
+            if (prmArray.Length <= attMaxCapacity)
+            {
+                attItems= prmArray;
+                attLength = attItems.Length;
+                attTotalCapacity=attItems.Length;
+                if (attMaxCapacity-attLength<100)
+                attGrowingFactor = attMaxCapacity-attLength;
+                attitsOrdenedAscending = false;
+                attitsOrdenedDescending=false;
+            }
             return true;
         }
         public override bool opToItems(T[] prmArray, int prmItemsCount)
@@ -121,11 +128,15 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
         #region Utilities
         public bool opIncreaseCapacity()
         {
-            T[]varCopyArray= attItems;
+            T[] varCopyArray= attItems;
             attTotalCapacity = varCopyArray.Length + attGrowingFactor;
             attLength= varCopyArray.Length;
             attItems = new T[attTotalCapacity];
-            //falta poner los items de copia en el attItems
+            int varCount= 0;
+            do
+            {
+                attItems[varCount] = varCopyArray[varCount];
+            } while (varCount < varCopyArray.Length);
             if (opGetTotalCapacity() == opGetMaxCapacity()) attItsFlexible = false;
             return true;
         }

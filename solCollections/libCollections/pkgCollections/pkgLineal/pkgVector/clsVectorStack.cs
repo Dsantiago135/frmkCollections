@@ -29,7 +29,7 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector
                         attItems[varIdx] = attItems[varIdx - 1];
                         varIdx--;
                         i++;
-                    } while (i<opGetLength());
+                    } while (i<attLength);
                     attItems[0] = prmItem;
                     attLength++;
                 }
@@ -65,22 +65,24 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector
         }
         public bool opPop(ref T prmItem)
         {
-            if (attLength != 0)
-            {
-                prmItem= attItems[0];
-                int varCount = 0;
-                do
+            if (attLength == 0) return false;
+            prmItem = attItems[0];
+            int varCount = 0;
+            
+            if (attLength > 1) {
+                for (int idx = 0; idx < attLength - 1; idx++)
                 {
-                    attItems[varCount] = attItems[varCount + 1];
-                    varCount++;
-                } while (varCount < opGetLength());
-
-                attLength--;
+                    attItems[idx] = attItems[idx + 1];
+                }
+                //do
+                //{
+                //    attItems[varCount] = attItems[varCount + 1];
+                //    varCount++;
+                //} while (varCount < attLength);
             }
-            else return false;
+            attLength--;
             return true;
         }
-
         #endregion
     }
 }

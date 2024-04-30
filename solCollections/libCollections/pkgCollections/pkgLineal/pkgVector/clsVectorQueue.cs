@@ -21,7 +21,17 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector
         }
         public bool opPop(ref T prmItem)
         {
-            throw new NotImplementedException();
+            if (attLength == 0) return false;
+            prmItem = attItems[0];
+            int varCount = 0;
+            do
+            {
+                attItems[varCount] = attItems[varCount + 1];
+                varCount++;
+            } while (varCount < opGetLength());
+
+            attLength--;
+            return true;
         }
         public bool opPush(T prmItem)
         {

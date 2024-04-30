@@ -10,9 +10,9 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector
         public clsVectorList()
         {
         }
-        public clsVectorList(int prmCapacity)
+        public clsVectorList(int prmCapacity) : base(prmCapacity)
         {
-            throw new NotImplementedException();
+            
         }
         #endregion
         #region CRUDs
@@ -26,7 +26,16 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector
         }
         public bool opRemove(int prmIdx, ref T prmItem)
         {
-            throw new NotImplementedException();
+            if (prmIdx > attLength - 1) return false;
+            if (prmIdx < 0) return false;
+            prmItem = attItems[prmIdx];
+            if (prmIdx != attLength - 1)
+                for (int varCount = prmIdx; varCount < attLength ; varCount++)
+                {
+                    attItems[varCount] = attItems[varCount + 1];
+                }
+            attLength--;
+            return true;
         } 
         #endregion
     }
