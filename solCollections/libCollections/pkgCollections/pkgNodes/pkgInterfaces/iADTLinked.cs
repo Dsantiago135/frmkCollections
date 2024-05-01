@@ -1,8 +1,9 @@
 ﻿using System;
 
-namespace pkgServicies.pkgCollections.pkgLineal.pkgInterfaces
+namespace pkgServicies.pkgCollections.pkgNodes.pkgInterfaces
 {
     internal interface iADTLinked<T> where T : IComparable<T>
     {
+
     }
 }

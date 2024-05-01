@@ -74,7 +74,6 @@ namespace pkgServicies.pkgCollections.pkgIterator
         {
             throw new NotImplementedException();
         }
-
         public bool opIsTherePrevious()
         {
             throw new NotImplementedException();
