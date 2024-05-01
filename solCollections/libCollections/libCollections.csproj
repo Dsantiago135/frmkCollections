@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="pkgCollections\pkgIterator\clsIterator.cs" />
+    <Compile Include="pkgCollections\pkgIterator\iIterator.cs" />
     <Compile Include="pkgCollections\pkgLineal\pkgADT\clsADTDoubleLinked.cs" />
     <Compile Include="pkgCollections\pkgLineal\pkgADT\clsADTLineal.cs" />
     <Compile Include="pkgCollections\pkgLineal\pkgADT\clsADTLinked.cs" />
