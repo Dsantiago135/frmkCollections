@@ -8,28 +8,24 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
     public class clsADTLineal<T>: clsIterator<T>, iADTLineal<T> where T : IComparable<T>
     {
         #region Attributes
+        protected int attMaxCapacity = int.MaxValue / 16;
         protected bool attitsOrdenedAscending = false;
         protected bool attitsOrdenedDescending = false;
         #endregion
         #region Operations
-        #region Getters
-        public int opGetLength()
-        {
-            return attLength;
-        }
-        #endregion
         #region Query
-        public bool opExists(T prmItem)
+        public int opFind(T prmItem)
         {
             throw new NotImplementedException();
         }
-        public int opFind(T prmItem)
+        public bool opExists(T prmItem)
         {
             throw new NotImplementedException();
         }
         public bool opItsEmpty()
         {
-            throw new NotImplementedException();
+            if(attLength!=0) return false;
+            return true;
         }
         public bool opItsOrderedAscending()
         {
@@ -45,6 +41,10 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
         {
             throw new NotImplementedException();
         }
+        public string opToString()
+        {
+            throw new NotImplementedException();
+        }
         public virtual bool opToItems(T[] prmArray)
         {
             throw new NotImplementedException();
@@ -53,19 +53,19 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
         {
             throw new NotImplementedException();
         }
-        public string opToString()
-        {
-            throw new NotImplementedException();
-        }
         #endregion
         #region CRUD
         public bool opModify(int prmIdx, T prmItem)
         {
-            //if (!opGo(prmIdx)) return false;
-            //return opSetCurrentItem(prmItem);
-            throw new NotImplementedException();
+            if (!opGo(prmIdx)) return false;
+            return opSetCurrentItem(prmItem);
+            ;
         }
         public virtual bool opRetrieve(int prmIdx, ref T prmItem)
+        {
+            throw new NotImplementedException();
+        }
+        public bool opReverse()
         {
             throw new NotImplementedException();
         }
