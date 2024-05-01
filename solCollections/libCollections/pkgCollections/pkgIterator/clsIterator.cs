@@ -32,7 +32,7 @@ namespace pkgServicies.pkgCollections.pkgIterator
         {
             throw new NotImplementedException();
         }
-        public bool opGo(int prmIdx)
+        public virtual bool opGo(int prmIdx)
         {
             throw new NotImplementedException();
         }

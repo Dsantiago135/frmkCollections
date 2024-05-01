@@ -11,18 +11,17 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgInterfaces
         int opGetGrowingFactor();
         #endregion
         #region Setters
-        bool opSetTotalCapacity(int prmValue);
         bool opSetGrowingFactor(int prmValue);
+        bool opSetTotalCapacity(int prmValue);
         bool opSetFlexible();
         bool opSetInFlexible();
-        #endregion
-        #region Serialize/Deserialize 
-        bool opToItems(T[] prmArray);
-        bool opToItems(T[] prmArray,int prmItemsCount);
         #endregion
         #region Query
         bool opItsFull();
         bool opItsFlexible();
+        #endregion
+        #region Serialize/Deserialize 
+        bool opToItems(T[] prmArray,int prmItemsCount);
         #endregion
         #region Utilities
         bool opIncreaseCapacity();

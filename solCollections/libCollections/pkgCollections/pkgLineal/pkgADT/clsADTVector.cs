@@ -1,5 +1,4 @@
 ﻿using pkgServicies.pkgCollections.pkgLineal.pkgInterfaces;
-using pkgServicies.pkgCollections.pkgLineal.pkgVector;
 using System;
 
 namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
@@ -8,7 +7,6 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
     {
         #region Attributes
         protected int attTotalCapacity = 100;
-        protected static int attMaxCapacity = int.MaxValue/16;
         protected T[] attItems = new T[100];
         protected bool attItsFlexible = false;
         protected int attGrowingFactor = 100;
@@ -53,10 +51,6 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
         {
             return attTotalCapacity;
         }
-        public static int opGetMaxCapacity()
-        {
-            return attMaxCapacity;
-        }
         public int opGetGrowingFactor()
         {
             return attGrowingFactor;
@@ -65,53 +59,20 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
         {
             return attTotalCapacity - attLength;
         }
-        #endregion
-        #region Serialize/Deserialize
-        public override T[] opToArray()
+        public static int opGetMaxCapacity()
         {
-            return attItems;
-        }
-        public override bool opToItems(T[] prmArray)
-        {
-            if (prmArray.Length <= attMaxCapacity)
-            {
-                attItems= prmArray;
-                attLength = attItems.Length;
-                attTotalCapacity=attItems.Length;
-                if (attMaxCapacity-attLength<100)
-                attGrowingFactor = attMaxCapacity-attLength;
-                attitsOrdenedAscending = false;
-                attitsOrdenedDescending=false;
-            }
-            return true;
-        }
-        public override bool opToItems(T[] prmArray, int prmItemsCount)
-        {
-            attItems= prmArray;
-            attTotalCapacity = prmArray.Length;
-            attLength= prmItemsCount;
-            return true;
-        }
-        #endregion
-        #region Iterator
-        public override bool opGo(int prmIdx)
-        {
-            if (0>prmIdx) return false;
-            if (prmIdx>=attLength)return false;
-            attCurrentIdx = prmIdx;
-            attCurrentItem = attItems[prmIdx];
-            return true;
+            return attMaxCapacity;
         }
         #endregion
         #region Setters
-        public bool opSetTotalCapacity(int prmValue)
-        {
-            this.attTotalCapacity = prmValue;
-            return true;
-        }
         public bool opSetGrowingFactor(int prmValue)
         {
             this.attGrowingFactor = prmValue;
+            return true;
+        }
+        public bool opSetTotalCapacity(int prmValue)
+        {
+            this.attTotalCapacity = prmValue;
             return true;
         }
         public bool opSetFlexible()
@@ -128,11 +89,57 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
         #region Query
         public bool opItsFull()
         {
-            throw new NotImplementedException();
+            if(attLength!=attTotalCapacity)return false;
+            return true;
         }
         public bool opItsFlexible()
         {
             return attItsFlexible;
+        }
+        #endregion
+        #region Serialize/Deserialize
+        public override T[] opToArray()
+        {
+            return attItems;
+        }
+        public override bool opToItems(T[] prmArray)
+        {
+            if (prmArray.Length <= attMaxCapacity)
+            {
+                attItems = prmArray;
+                attLength = attItems.Length;
+                attTotalCapacity = attItems.Length;
+                if (attMaxCapacity-attLength < 100)
+                    attGrowingFactor = attMaxCapacity-attLength;
+                attitsOrdenedAscending = false;
+                attitsOrdenedDescending = false;
+            }
+            return true;
+        }
+        public override bool opToItems(T[] prmArray, int prmItemsCount)
+        {
+            if (prmArray == null) return false;
+            if (prmArray.Length == 0) return false;
+            if (prmArray.Length > attTotalCapacity) return false;
+            if (prmItemsCount < 0) return false;
+            attItems = prmArray;
+            attLength = prmItemsCount;
+            attTotalCapacity = prmArray.Length;
+            if(attMaxCapacity-attLength < 100)
+                attGrowingFactor = attMaxCapacity-attLength;
+            attitsOrdenedAscending = false;
+            attitsOrdenedDescending = false;
+            return true;
+        }
+        #endregion
+        #region Iterator
+        public override bool opGo(int prmIdx)
+        {
+            if (0>prmIdx) return false;
+            if (prmIdx>=attLength)return false;
+            attCurrentIdx = prmIdx;
+            attCurrentItem = attItems[prmIdx];
+            return true;
         }
         #endregion
         #region CRUDS
