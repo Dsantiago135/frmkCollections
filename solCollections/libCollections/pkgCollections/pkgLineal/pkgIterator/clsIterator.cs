@@ -56,27 +56,31 @@ namespace pkgServicies.pkgCollections.pkgIterator
         #region Getter
         public int opGetLength()
         {
-            throw new NotImplementedException();
+            return attLength;
         }
         public int opGetCurrentIdx()
         {
-            throw new NotImplementedException();
+            return attCurrentIdx;
         }
         public T opGetCurrentItem()
         {
-            throw new NotImplementedException();
+            return attCurrentItem;
         }
         #endregion
         #region Setter
         public bool opSetCurrentItem(T prmContent)
         {
-            throw new NotImplementedException();
+            attCurrentItem=prmContent;
+            return true;
         }
         #endregion
         #region Query
         public bool opIsValid(int prmIdx)
         {
-            throw new NotImplementedException();
+            if (attLength == 0)return false;
+            if (prmIdx >= attLength) return false;
+            if (prmIdx < 0) return false;
+            return true;
         }
         public bool opIsThereNext()
         {
@@ -88,6 +92,5 @@ namespace pkgServicies.pkgCollections.pkgIterator
         }
         #endregion
         #endregion
-
     }
 }

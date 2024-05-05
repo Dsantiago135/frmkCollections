@@ -15,6 +15,16 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector
         }
         #endregion
         #region CRUDs
+        public bool opPush(T prmItem)
+        {
+            if (attLength == attMaxCapacity) return false;
+            if (attTotalCapacity == attLength && !attItsFlexible) return false;
+            if (attTotalCapacity == attLength) opIncreaseCapacity();
+
+            attItems[attLength] = prmItem;
+            attLength++;
+            return true;
+        }
         public bool opPeek(ref T prmItem)
         {
             if (attLength==0) return false;
@@ -35,16 +45,6 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector
                 }
             }
             attLength--;
-            return true;
-        }
-        public bool opPush(T prmItem)
-        {
-            if (attLength == attMaxCapacity) return false;
-            if (attTotalCapacity == attLength && !attItsFlexible) return false;
-            if (attTotalCapacity == attLength) opIncreaseCapacity();
-
-            attItems[attLength] = prmItem;
-            attLength++;
             return true;
         }
         #endregion

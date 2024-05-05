@@ -15,6 +15,7 @@ namespace pkgServicies.pkgCollections.pkgNodes
         }
         public clsNode(T prmItem)
         {
+            attItem = prmItem;
         }
         #endregion
         #region Getter
@@ -26,7 +27,7 @@ namespace pkgServicies.pkgCollections.pkgNodes
         #region Setter
         public bool opSetItem(T prmcontent)
         {
-            this.attItem = prmcontent;
+            attItem = prmcontent;
             return true;
         } 
         #endregion

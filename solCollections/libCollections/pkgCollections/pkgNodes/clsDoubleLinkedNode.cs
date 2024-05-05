@@ -8,15 +8,15 @@ namespace pkgServicies.pkgCollections.pkgNodes
     internal class clsDoubleLinkedNode<T>: clsNode<T>, iDoubleLinkedNode<T> where T : IComparable<T>
     {
         #region Attributes
-        protected clsDoubleLinkedNode<T> attPrevious;
-        protected clsDoubleLinkedNode<T> attNext;
+        protected clsDoubleLinkedNode<T> attPrevious = default;
+        protected clsDoubleLinkedNode<T> attNext = default;
         #endregion
         #region Operations
         #region Builders
         public clsDoubleLinkedNode()
         {
         }
-        public clsDoubleLinkedNode(T prmItem)
+        public clsDoubleLinkedNode(T prmItem): base(prmItem)
         {
         }
         #endregion

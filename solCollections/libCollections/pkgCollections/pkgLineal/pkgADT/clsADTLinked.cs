@@ -7,11 +7,11 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
     internal class clsADTLinked<T> : clsADTLineal<T>, iADTLinked<T> where T : IComparable<T>
     {
         #region Attributes
-        protected clsLinkedNode<T> attFirst;
-        protected clsLinkedNode<T> attFirstQuarter;
-        protected clsLinkedNode<T> attMiddle;
-        protected clsLinkedNode<T> attLastQuarter;
-        protected clsLinkedNode<T> attLast;
+        protected clsLinkedNode<T> attFirst = default;
+        protected clsLinkedNode<T> attFirstQuarter = default;
+        protected clsLinkedNode<T> attMiddle = default;
+        protected clsLinkedNode<T> attLastQuarter = default;
+        protected clsLinkedNode<T> attLast = default;
         #endregion
         #region Operations
         #region Builders
@@ -44,27 +44,27 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
         #region Setter
         public bool opSetFirst(clsLinkedNode<T> prmNode)
         {
-            this.attFirst = prmNode;
+            attFirst = prmNode;
             return true;
         }
         public bool opSetFirstQuarter(clsLinkedNode<T> prmNode)
         {
-            this.attFirstQuarter = prmNode;
+            attFirstQuarter = prmNode;
             return true;
         }
         public bool opSetMiddle(clsLinkedNode<T> prmNode)
         {
-            this.attMiddle = prmNode;
+            attMiddle = prmNode;
             return true;
         }
         public bool opSetLastQuarter(clsLinkedNode<T> prmNode)
         {
-            this.attLastQuarter = prmNode;
+            attLastQuarter = prmNode;
             return true;
         }
         public bool opSetLast(clsLinkedNode<T> prmNode)
         {
-            this.attLast= prmNode;
+            attLast= prmNode;
             return true;
         }
         #endregion

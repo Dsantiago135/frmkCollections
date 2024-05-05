@@ -7,11 +7,11 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
     internal class clsADTDoubleLinked<T> :clsADTLineal<T>, iADTDoubleLinked<T> where T : IComparable<T>
     {
         #region Attributes
-        protected clsDoubleLinkedNode<T> attFirst;
-        protected clsDoubleLinkedNode<T> attFirstQuarter;
-        protected clsDoubleLinkedNode<T> attMiddle;
-        protected clsDoubleLinkedNode<T> attLastQuarter;
-        protected clsDoubleLinkedNode<T> attLast;
+        protected clsDoubleLinkedNode<T> attFirst = default;
+        protected clsDoubleLinkedNode<T> attFirstQuarter = default;
+        protected clsDoubleLinkedNode<T> attMiddle = default;
+        protected clsDoubleLinkedNode<T> attLastQuarter = default;
+        protected clsDoubleLinkedNode<T> attLast = default;
         #endregion
         #region Operations
         #region Builders
@@ -44,27 +44,27 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
         #region Setter
         public bool opSetFirst(clsDoubleLinkedNode<T> prmNode)
         {
-            this.attFirst = prmNode;
+            attFirst = prmNode;
             return true;
         }
         public bool opSetFirstQuarter(clsDoubleLinkedNode<T> prmNode)
         {
-            this.attFirstQuarter = prmNode;
+            attFirstQuarter = prmNode;
             return true;
         }
         public bool opSetMiddle(clsDoubleLinkedNode<T> prmNode)
         {
-            this.attMiddle = prmNode;
+            attMiddle = prmNode;
             return true;
         }
         public bool opSetLastQuarter(clsDoubleLinkedNode<T> prmNode)
         {
-            this.attLastQuarter = prmNode;
+            attLastQuarter = prmNode;
             return true;
         }
         public bool opSetLast(clsDoubleLinkedNode<T> prmNode)
         {
-            this.attLast = prmNode;
+            attLast = prmNode;
             return true;
         }
         #endregion

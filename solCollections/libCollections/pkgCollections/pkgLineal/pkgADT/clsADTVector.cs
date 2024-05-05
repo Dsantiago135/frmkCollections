@@ -67,12 +67,12 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
         #region Setters
         public bool opSetGrowingFactor(int prmValue)
         {
-            this.attGrowingFactor = prmValue;
+            attGrowingFactor = prmValue;
             return true;
         }
         public bool opSetTotalCapacity(int prmValue)
         {
-            this.attTotalCapacity = prmValue;
+            attTotalCapacity = prmValue;
             return true;
         }
         public bool opSetFlexible()
@@ -135,8 +135,8 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
         #region Iterator
         public override bool opGo(int prmIdx)
         {
-            if (!opIsValid(0)) return false;
-            attCurrentIdx = 0;
+            if (!opIsValid(prmIdx)) return false;
+            attCurrentIdx = prmIdx;
             attCurrentItem = attItems[attCurrentIdx];
             return true;
         }
