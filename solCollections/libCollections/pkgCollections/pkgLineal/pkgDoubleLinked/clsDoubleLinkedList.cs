@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace pkgServicies.pkgCollections.pkgLineal.pkgDoubleLinked
 {
-    internal class clsDoubleLinkedList
+    internal class clsDoubleLinkedList<T> where T : IComparable<T>
     {
     }
 }

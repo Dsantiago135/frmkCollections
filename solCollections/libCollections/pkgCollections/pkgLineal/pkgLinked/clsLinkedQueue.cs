@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace pkgServicies.pkgCollections.pkgLineal.pkgLinked
 {
-    internal class clsLinkedQueue
+    internal class clsLinkedQueue<T> where T : IComparable<T>
     {
     }
 }
