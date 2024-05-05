@@ -1,10 +1,11 @@
 ﻿using System;
+using pkgServicies.pkgCollections.pkgLineal.pkgADT;
 using pkgServicies.pkgCollections.pkgNodes.pkgInterfaces;
 
 
 namespace pkgServicies.pkgCollections.pkgNodes
 {
-    internal class clsDoubleLinkedNode<T> : clsNode<T>, iDoubleLinkedNode<T> where T : IComparable<T>
+    internal class clsDoubleLinkedNode<T>: clsNode<T>, iDoubleLinkedNode<T> where T : IComparable<T>
     {
         #region Attributes
         protected clsDoubleLinkedNode<T> attPrevious;

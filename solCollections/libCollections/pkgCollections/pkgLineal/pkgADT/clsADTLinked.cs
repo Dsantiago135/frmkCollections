@@ -4,10 +4,14 @@ using System;
 
 namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
 {
-    internal class clsADTLinked<T> : iADTLinked<T> where T : IComparable<T>
+    internal class clsADTLinked<T> : clsADTLineal<T>, iADTLinked<T> where T : IComparable<T>
     {
         #region Attributes
-
+        protected clsLinkedNode<T> attFirst;
+        protected clsLinkedNode<T> attFirstQuarter;
+        protected clsLinkedNode<T> attMiddle;
+        protected clsLinkedNode<T> attLastQuarter;
+        protected clsLinkedNode<T> attLast;
         #endregion
         #region Operations
         #region Builders
@@ -18,29 +22,50 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
         #region Getter
         public clsLinkedNode<T> opGetFirst()
         {
-            throw new NotImplementedException();
+            return attFirst;
         }
-        public clsLinkedNode<T> opGetLast()
+        public clsLinkedNode<T> opGetFirstQuarter()
         {
-            throw new NotImplementedException();
+            return attFirstQuarter;
         }
         public clsLinkedNode<T> opGetMiddle()
         {
-            throw new NotImplementedException();
+            return attMiddle;
+        }
+        public clsLinkedNode <T> opGetLastQuarter() 
+        {
+            return attLastQuarter;
+        }
+        public clsLinkedNode<T> opGetLast()
+        {
+            return attLast;
         }
         #endregion
         #region Setter
         public bool opSetFirst(clsLinkedNode<T> prmNode)
         {
-            throw new NotImplementedException();
+            this.attFirst = prmNode;
+            return true;
         }
-        public bool opSetLast(clsLinkedNode<T> prmNode)
+        public bool opSetFirstQuarter(clsLinkedNode<T> prmNode)
         {
-            throw new NotImplementedException();
+            this.attFirstQuarter = prmNode;
+            return true;
         }
         public bool opSetMiddle(clsLinkedNode<T> prmNode)
         {
-            throw new NotImplementedException();
+            this.attMiddle = prmNode;
+            return true;
+        }
+        public bool opSetLastQuarter(clsLinkedNode<T> prmNode)
+        {
+            this.attLastQuarter = prmNode;
+            return true;
+        }
+        public bool opSetLast(clsLinkedNode<T> prmNode)
+        {
+            this.attLast= prmNode;
+            return true;
         }
         #endregion
         #endregion
