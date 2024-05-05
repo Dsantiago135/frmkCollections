@@ -135,10 +135,9 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
         #region Iterator
         public override bool opGo(int prmIdx)
         {
-            if (0>prmIdx) return false;
-            if (prmIdx>=attLength)return false;
-            attCurrentIdx = prmIdx;
-            attCurrentItem = attItems[prmIdx];
+            if (!opIsValid(0)) return false;
+            attCurrentIdx = 0;
+            attCurrentItem = attItems[attCurrentIdx];
             return true;
         }
         #endregion

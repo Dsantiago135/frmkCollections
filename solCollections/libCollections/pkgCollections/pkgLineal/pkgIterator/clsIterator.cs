@@ -20,7 +20,15 @@ namespace pkgServicies.pkgCollections.pkgIterator
         {
             throw new NotImplementedException();
         }
+        public virtual bool opGoFirstQuarter()
+        {
+            throw new NotImplementedException();
+        }
         public bool opGoMiddle()
+        {
+            throw new NotImplementedException();
+        }
+        public virtual bool opGoLastQuarter()
         {
             throw new NotImplementedException();
         }
