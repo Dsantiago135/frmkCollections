@@ -18,6 +18,7 @@ namespace pkgServicies.pkgCollections.pkgNodes
         }
         public clsDoubleLinkedNode(T prmItem): base(prmItem)
         {
+            throw new NotImplementedException;
         }
         #endregion
         #region Getter

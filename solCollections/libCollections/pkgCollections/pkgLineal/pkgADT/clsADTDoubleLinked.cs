@@ -93,6 +93,7 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
         }
         #endregion
         #region Iterator
+        protected clsDoubleLinkedNode<T> attCurrentNode;
         public override bool opGo(int prmIdx)
         {
             if (!opIsValid(prmIdx)) return false;
@@ -104,6 +105,18 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
             while (attCurrentIdx < prmIdx)
                 opGoNext();
             return true;
+        }
+        public override void opGoBack()
+        {
+            base.opGoBack();
+            attCurrentNode = attCurrentNode.opGetPrevious();
+            attCurrentItem = attCurrentNode.opGetItem();
+        }
+        public override void opGoForward()
+        {
+            base.opGoForward();
+            attCurrentNode = attCurrentNode.opGetNext();
+            attCurrentItem = attCurrentNode.opGetItem();
         }
         public override bool opGoFirstQuarter()
         {

@@ -140,6 +140,16 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
             attCurrentItem = attItems[attCurrentIdx];
             return true;
         }
+        public override void opGoBack()
+        {
+            base.opGoBack();
+            attCurrentItem = attItems[attCurrentIdx];
+        }
+        public override void opGoForward()
+        {
+            base .opGoForward();
+            attCurrentItem = attItems[attCurrentIdx];
+        }
         #endregion
         #region CRUDS
         public override bool opRetrieve(int prmIdx, ref T prmItem)

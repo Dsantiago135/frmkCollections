@@ -15,6 +15,7 @@ namespace pkgServicies.pkgCollections.pkgNodes
         }
         public clsLinkedNode(T prmItem): base(prmItem)
         {
+            throw new NotImplementedException();
         }
         #endregion
         #region Getter

@@ -22,11 +22,6 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
         {
             throw new NotImplementedException();
         }
-        public bool opItsEmpty()
-        {
-            if(attLength!=0) return false;
-            return true;
-        }
         public bool opItsOrderedAscending()
         {
             return attitsOrdenedAscending;

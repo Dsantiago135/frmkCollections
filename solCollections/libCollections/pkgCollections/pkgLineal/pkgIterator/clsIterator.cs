@@ -7,7 +7,7 @@ namespace pkgServicies.pkgCollections.pkgIterator
     {
         #region Attributes
         protected int attLength = 0;
-        protected int attCurrentIdx;
+        protected int attCurrentIdx=-1;
         protected T attCurrentItem;
         #endregion
         #region Operations
@@ -18,7 +18,9 @@ namespace pkgServicies.pkgCollections.pkgIterator
         }
         public bool opGoPrevious()
         {
-            throw new NotImplementedException();
+            if (!opIsTherePrevious()) return false;
+            opGoBack();
+            return true;
         }
         public virtual bool opGoFirstQuarter()
         {
@@ -34,9 +36,11 @@ namespace pkgServicies.pkgCollections.pkgIterator
         }
         public bool opGoNext()
         {
-            throw new NotImplementedException();
+            if (!opIsThereNext()) return false;
+            opGoForward();
+            return true;
         }
-        public bool opGoLast()
+        public  bool opGoLast()
         {
             throw new NotImplementedException();
         }
@@ -44,13 +48,13 @@ namespace pkgServicies.pkgCollections.pkgIterator
         {
             throw new NotImplementedException();
         }
-        public void opGoBack()
+        public virtual void opGoBack()
         {
-            throw new NotImplementedException();
+            attCurrentIdx--;
         }
-        public void opGoForward()
+        public virtual void opGoForward()
         {
-            throw new NotImplementedException();
+            attCurrentIdx++;
         }
         #endregion
         #region Getter
@@ -82,13 +86,20 @@ namespace pkgServicies.pkgCollections.pkgIterator
             if (prmIdx < 0) return false;
             return true;
         }
+        public bool opItsEmpty()
+        {
+            if (attLength != 0) return false;
+            return true;
+        }
         public bool opIsThereNext()
         {
-            throw new NotImplementedException();
+            if(attCurrentIdx>=attLength-1)return false;
+            return true;
         }
         public bool opIsTherePrevious()
         {
-            throw new NotImplementedException();
+            if(attCurrentIdx<=0) return false;
+            return true;
         }
         #endregion
         #endregion

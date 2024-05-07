@@ -7,7 +7,6 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgInterfaces
         #region Query
         int opFind(T prmItem);
         bool opExists(T prmItem);
-        bool opItsEmpty();
         bool opItsOrderedAscending();
         bool opItsOrderedDescending();
         #endregion

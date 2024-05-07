@@ -24,6 +24,7 @@ namespace pkgServicies.pkgCollections.pkgIterator
         #endregion
         #region Query
         bool opIsValid(int prmIdx);
+        bool opItsEmpty();
         bool opIsThereNext();
         bool opIsTherePrevious();
         #endregion
