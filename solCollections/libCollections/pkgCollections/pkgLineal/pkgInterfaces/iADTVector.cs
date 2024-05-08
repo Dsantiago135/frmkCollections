@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Diagnostics;
 
-namespace pkgServicies.pkgCollections.pkgLineal.pkgInterfaces
+namespace pkgServices.pkgCollections.pkgLineal.pkgInterfaces
 {
     internal interface iADTVector<T> where T : IComparable<T>
     {

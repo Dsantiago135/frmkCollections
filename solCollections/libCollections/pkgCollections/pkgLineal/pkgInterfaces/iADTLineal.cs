@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace pkgServicies.pkgCollections.pkgLineal.pkgInterfaces
+namespace pkgServices.pkgCollections.pkgLineal.pkgInterfaces
 {
     internal interface iADTLineal<T> where T : IComparable<T>
     {   

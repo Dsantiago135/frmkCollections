@@ -1,13 +1,25 @@
-﻿using pkgServicies.pkgCollections.pkgLineal.pkgADT;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
+using pkgServices.pkgCollections.pkgLineal.pkgADT;
 
-namespace pkgServicies.pkgCollections.pkgLineal.pkgDoubleLinked
+namespace pkgServices.pkgCollections.pkgLineal.pkgDoubleLinked
 {
-    internal class clsDoubleLinkedList<T>: clsADTDoubleLinked<T> where T : IComparable<T>
+    public class clsDoubleLinkedList<T>: clsADTDoubleLinked<T> where T : IComparable<T>
     {
+        #region Builders
+        public clsDoubleLinkedList()
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
+        #region CRUDS
+        public bool opAdd(T item)
+        {
+            throw new NotImplementedException();
+        }
+        public bool opRemove(int prmIdx, ref T item)
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
     }
 }

@@ -1,11 +1,11 @@
 ﻿using System;
-using pkgServicies.pkgCollections.pkgLineal.pkgADT;
-using pkgServicies.pkgCollections.pkgNodes.pkgInterfaces;
+using pkgServices.pkgCollections.pkgLineal.pkgADT;
+using pkgServices.pkgCollections.pkgNodes.pkgInterfaces;
 
 
-namespace pkgServicies.pkgCollections.pkgNodes
+namespace pkgServices.pkgCollections.pkgNodes
 {
-    internal class clsDoubleLinkedNode<T>: clsNode<T>, iDoubleLinkedNode<T> where T : IComparable<T>
+    public class clsDoubleLinkedNode<T>: clsNode<T>, iDoubleLinkedNode<T> where T : IComparable<T>
     {
         #region Attributes
         protected clsDoubleLinkedNode<T> attPrevious = default;
@@ -18,7 +18,7 @@ namespace pkgServicies.pkgCollections.pkgNodes
         }
         public clsDoubleLinkedNode(T prmItem): base(prmItem)
         {
-            throw new NotImplementedException;
+            throw new NotImplementedException();
         }
         #endregion
         #region Getter

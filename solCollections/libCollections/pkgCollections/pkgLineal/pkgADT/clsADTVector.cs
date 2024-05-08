@@ -1,7 +1,7 @@
-﻿using pkgServicies.pkgCollections.pkgLineal.pkgInterfaces;
+﻿using pkgServices.pkgCollections.pkgLineal.pkgInterfaces;
 using System;
 
-namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
+namespace pkgServices.pkgCollections.pkgLineal.pkgADT
 {
     public class clsADTVector<T> : clsADTLineal<T>, iADTVector<T> where T : IComparable<T>
     {
@@ -58,10 +58,6 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
         public int opGetAvailableCapacity()
         {
             return attTotalCapacity - attLength;
-        }
-        public static int opGetMaxCapacity()
-        {
-            return attMaxCapacity;
         }
         #endregion
         #region Setters

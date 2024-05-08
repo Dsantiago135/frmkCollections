@@ -1,9 +1,8 @@
-﻿using pkgServicies.pkgCollections.pkgIterator;
-using pkgServicies.pkgCollections.pkgLineal.pkgInterfaces;
+﻿using pkgServices.pkgCollections.pkgIterator;
+using pkgServices.pkgCollections.pkgLineal.pkgInterfaces;
 using System;
-using System.CodeDom;
 
-namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
+namespace pkgServices.pkgCollections.pkgLineal.pkgADT
 {
     public class clsADTLineal<T>: clsIterator<T>, iADTLineal<T> where T : IComparable<T>
     {
@@ -13,6 +12,12 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
         protected bool attitsOrdenedDescending = false;
         #endregion
         #region Operations
+        #region Getter
+        public static int opGetMaxCapacity()
+        {
+            return attMaxCapacity;
+        }
+        #endregion
         #region Query
         public int opFind(T prmItem)
         {

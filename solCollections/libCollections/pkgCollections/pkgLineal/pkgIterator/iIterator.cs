@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace pkgServicies.pkgCollections.pkgIterator
+namespace pkgServices.pkgCollections.pkgIterator
 {
     internal interface iIterator<T> where T : IComparable<T>
     {

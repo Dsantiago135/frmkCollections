@@ -1,15 +1,29 @@
-﻿using pkgServicies.pkgCollections.pkgNodes.pkgInterfaces;
-using pkgServicies.pkgCollections.pkgNodes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using pkgServicies.pkgCollections.pkgLineal.pkgADT;
+﻿using System;
+using pkgServices.pkgCollections.pkgLineal.pkgADT;
 
-namespace pkgServicies.pkgCollections.pkgLineal.pkgLinked
+namespace pkgServices.pkgCollections.pkgLineal.pkgLinked
 {
-    internal class clsLinkedStack<T>: clsADTLinked<T> where T : IComparable<T>
+    public class clsLinkedStack<T>: clsADTLinked<T> where T : IComparable<T>
     {
+        #region Builder
+        public clsLinkedStack()
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
+        #region CRUDS
+        public bool opPush(T prmItem)
+        {
+            throw new NotImplementedException();
+        }
+        public bool opPeek(ref T prmItem)
+        {
+            throw new NotImplementedException();
+        }
+        public bool opPop(ref T prmItem)
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
     }
 }

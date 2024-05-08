@@ -1,8 +1,8 @@
-﻿using pkgServicies.pkgCollections.pkgLineal.pkgADT;
-using pkgServicies.pkgCollections.pkgLineal.pkgInterfaces;
+﻿using pkgServices.pkgCollections.pkgLineal.pkgADT;
+using pkgServices.pkgCollections.pkgLineal.pkgInterfaces;
 using System;
 
-namespace pkgServicies.pkgCollections.pkgLineal.pkgVector
+namespace pkgServices.pkgCollections.pkgLineal.pkgVector
 {
     public class clsVectorQueue<T> : clsADTVector<T>, iQueue<T> where T : IComparable<T>
     {

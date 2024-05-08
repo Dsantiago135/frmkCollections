@@ -1,9 +1,9 @@
 ﻿using System;
-using pkgServicies.pkgCollections.pkgNodes.pkgInterfaces;
+using pkgServices.pkgCollections.pkgNodes.pkgInterfaces;
 
-namespace pkgServicies.pkgCollections.pkgNodes
+namespace pkgServices.pkgCollections.pkgNodes
 {
-    internal class clsNode<T> : iNode<T> where T : IComparable<T>
+    public class clsNode<T> : iNode<T> where T : IComparable<T>
     {
         #region Attributes
         protected T attItem = default;
@@ -15,7 +15,7 @@ namespace pkgServicies.pkgCollections.pkgNodes
         }
         public clsNode(T prmItem)
         {
-            throw new NotImplementedException;
+            throw new NotImplementedException();
         }
         #endregion
         #region Getter

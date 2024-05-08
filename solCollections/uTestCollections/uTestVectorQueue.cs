@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using pkgServicies.pkgCollections.pkgLineal.pkgVector;
+using pkgServices.pkgCollections.pkgLineal.pkgLinked;
+using pkgServices.pkgCollections.pkgLineal.pkgVector;
 
 namespace uTestCollections
     {

@@ -1,13 +1,25 @@
-﻿using pkgServicies.pkgCollections.pkgLineal.pkgADT;
+﻿using pkgServices.pkgCollections.pkgLineal.pkgADT;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace pkgServicies.pkgCollections.pkgLineal.pkgLinked
+namespace pkgServices.pkgCollections.pkgLineal.pkgLinked
 {
-    internal class clsLinkedList<T>: clsADTLinked<T> where T : IComparable<T>
+    public class clsLinkedList<T>: clsADTLinked<T> where T : IComparable<T>
     {
+        #region Builders
+        public clsLinkedList()
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
+        #region CRUDS
+        public bool opAdd(T item) 
+        {
+            throw new NotImplementedException();
+        }
+        public bool opRemove(int prmIdx,ref T item) 
+        {  
+            throw new NotImplementedException();
+        }
+        #endregion
     }
 }

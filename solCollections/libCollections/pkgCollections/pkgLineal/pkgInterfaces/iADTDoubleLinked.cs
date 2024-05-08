@@ -1,7 +1,7 @@
-﻿using pkgServicies.pkgCollections.pkgNodes;
-using System;
+﻿using System;
+using pkgServices.pkgCollections.pkgNodes;
 
-namespace pkgServicies.pkgCollections.pkgLineal.pkgInterfaces
+namespace pkgServices.pkgCollections.pkgLineal.pkgInterfaces
 {
     internal interface iADTDoubleLinked<T> where T : IComparable<T>
     {

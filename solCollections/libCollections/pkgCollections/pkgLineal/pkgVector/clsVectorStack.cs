@@ -1,9 +1,8 @@
 ﻿using System;
-using System.Diagnostics.Eventing.Reader;
-using pkgServicies.pkgCollections.pkgLineal.pkgADT;
-using pkgServicies.pkgCollections.pkgLineal.pkgInterfaces;
+using pkgServices.pkgCollections.pkgLineal.pkgADT;
+using pkgServices.pkgCollections.pkgLineal.pkgInterfaces;
 
-namespace pkgServicies.pkgCollections.pkgLineal.pkgVector
+namespace pkgServices.pkgCollections.pkgLineal.pkgVector
 {
     public class clsVectorStack<T> :clsADTVector<T>, iStack<T>  where T : IComparable<T>
     {

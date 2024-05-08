@@ -1,10 +1,10 @@
-﻿using pkgServicies.pkgCollections.pkgLineal.pkgInterfaces;
-using pkgServicies.pkgCollections.pkgNodes;
+﻿using pkgServices.pkgCollections.pkgLineal.pkgInterfaces;
+using pkgServices.pkgCollections.pkgNodes;
 using System;
 
-namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
+namespace pkgServices.pkgCollections.pkgLineal.pkgADT
 {
-    internal class clsADTDoubleLinked<T> :clsADTLineal<T>, iADTDoubleLinked<T> where T : IComparable<T>
+    public class clsADTDoubleLinked<T> :clsADTLineal<T>, iADTDoubleLinked<T> where T : IComparable<T>
     {
         #region Attributes
         protected clsDoubleLinkedNode<T> attFirst = default;
@@ -12,6 +12,7 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
         protected clsDoubleLinkedNode<T> attMiddle = default;
         protected clsDoubleLinkedNode<T> attLastQuarter = default;
         protected clsDoubleLinkedNode<T> attLast = default;
+        protected clsDoubleLinkedNode<T> attCurrentNode;
         #endregion
         #region Operations
         #region Builders
@@ -22,22 +23,32 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
         #region Getter
         public clsDoubleLinkedNode<T> opGetFirst()
         {
+            if (!opGoFirst()) return null;
+            attFirst = attCurrentNode;
             return attFirst;
         }
-        public clsDoubleLinkedNode <T> opGetFirstQuarter()
+        public clsDoubleLinkedNode<T> opGetFirstQuarter()
         {
+            if (!opGoFirstQuarter()) return null;
+            attFirstQuarter = attCurrentNode;
             return attFirstQuarter;
         }
-        public clsDoubleLinkedNode <T> opGetMiddle()
+        public clsDoubleLinkedNode<T> opGetMiddle()
         {
+            if (!opGoMiddle()) return null;
+            attMiddle = attCurrentNode;
             return attMiddle;
         }
         public clsDoubleLinkedNode<T> opGetLastQuarter()
         {
+            if (!opGoLastQuarter()) return null;
+            attLastQuarter = attCurrentNode;
             return attLastQuarter;
         }
         public clsDoubleLinkedNode<T> opGetLast()
         {
+            if (!opGoLast()) return null;
+            attLast = attCurrentNode;
             return attLast;
         }
         #endregion
@@ -91,9 +102,12 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
             attitsOrdenedDescending = false;
             return true;
         }
+        public override T[] opToArray()
+        {
+            throw new NotImplementedException();
+        }
         #endregion
         #region Iterator
-        protected clsDoubleLinkedNode<T> attCurrentNode;
         public override bool opGo(int prmIdx)
         {
             if (!opIsValid(prmIdx)) return false;
@@ -118,18 +132,44 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
             attCurrentNode = attCurrentNode.opGetNext();
             attCurrentItem = attCurrentNode.opGetItem();
         }
+        public override bool opGoFirst()
+        {
+            if (attFirst == null) return false;
+            attCurrentNode = attFirst;
+            attCurrentItem = attCurrentNode.opGetItem();
+            attCurrentIdx = 0;
+            return true;
+        }
         public override bool opGoFirstQuarter()
         {
             if (attFirstQuarter == null) return false;
-            attCurrentItem = attFirstQuarter.opGetItem();
+            attCurrentNode= attFirstQuarter;
+            attCurrentItem = attCurrentNode.opGetItem();
             attCurrentIdx = (attLength / 4);
+            return true;
+        }
+        public override bool opGoMiddle()
+        {
+            if (attMiddle == null) return false;
+            attCurrentNode = attMiddle;
+            attCurrentItem = attCurrentNode.opGetItem();
+            attCurrentIdx = attLength/2;
             return true;
         }
         public override bool opGoLastQuarter()
         {
             if(attLastQuarter == null)return false;
-            attCurrentItem = attLastQuarter.opGetItem();
+            attCurrentNode = attLastQuarter;
+            attCurrentItem = attCurrentNode.opGetItem();
             attCurrentIdx = (attLength / 2) + (attLength / 4);
+            return true;
+        }
+        public override bool opGoLast()
+        {
+            if (attLast == null) return false;
+            attCurrentNode =attLast ;
+            attCurrentItem = attCurrentNode.opGetItem();
+            attCurrentIdx = attLength-1;
             return true;
         }
         #endregion

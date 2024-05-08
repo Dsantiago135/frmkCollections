@@ -1,7 +1,6 @@
-﻿using pkgServicies.pkgCollections.pkgLineal.pkgInterfaces;
-using System;
+﻿using System;
 
-namespace pkgServicies.pkgCollections.pkgIterator
+namespace pkgServices.pkgCollections.pkgIterator
 {
     public class clsIterator<T> : iIterator<T> where T : IComparable<T>
     {
@@ -12,7 +11,7 @@ namespace pkgServicies.pkgCollections.pkgIterator
         #endregion
         #region Operations
         #region Movement
-        public bool opGoFirst()
+        public virtual bool opGoFirst()
         {
             throw new NotImplementedException();
         }
@@ -26,7 +25,7 @@ namespace pkgServicies.pkgCollections.pkgIterator
         {
             throw new NotImplementedException();
         }
-        public bool opGoMiddle()
+        public virtual bool opGoMiddle()
         {
             throw new NotImplementedException();
         }
@@ -40,7 +39,7 @@ namespace pkgServicies.pkgCollections.pkgIterator
             opGoForward();
             return true;
         }
-        public  bool opGoLast()
+        public virtual bool opGoLast()
         {
             throw new NotImplementedException();
         }

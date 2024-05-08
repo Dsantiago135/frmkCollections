@@ -1,9 +1,9 @@
 ﻿using System;
-using pkgServicies.pkgCollections.pkgNodes.pkgInterfaces;
+using pkgServices.pkgCollections.pkgNodes.pkgInterfaces;
 
-namespace pkgServicies.pkgCollections.pkgNodes
+namespace pkgServices.pkgCollections.pkgNodes
 {
-    internal class clsLinkedNode<T> : clsNode<T>, iLinkedNode<T> where T : IComparable<T>
+    public class clsLinkedNode<T> : clsNode<T>, iLinkedNode<T> where T : IComparable<T>
     {
         #region Attributes
         protected clsLinkedNode<T> attNext = default;
