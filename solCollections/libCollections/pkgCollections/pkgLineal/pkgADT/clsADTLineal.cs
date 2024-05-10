@@ -1,10 +1,11 @@
 ﻿using pkgServices.pkgCollections.pkgIterator;
 using pkgServices.pkgCollections.pkgLineal.pkgInterfaces;
 using System;
+using System.Net.Http.Headers;
 
 namespace pkgServices.pkgCollections.pkgLineal.pkgADT
 {
-    public class clsADTLineal<T>: clsIterator<T>, iADTLineal<T> where T : IComparable<T>
+    public class clsADTLineal<T> : clsIterator<T>, iADTLineal<T> where T : IComparable<T>
     {
         #region Attributes
         protected static int attMaxCapacity = int.MaxValue / 16;
@@ -40,6 +41,15 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
         public virtual T[] opToArray()
         {
             throw new NotImplementedException();
+        //    if (opItsEmpty()) return null;
+        //    T[] varArray = new T[attLength];
+        //    opGoFirst();
+        //    do
+        //    {
+        //        varArray[attCurrentIdx] = attCurrentItem;
+        //    } while (opGoNext());
+
+        //    return varArray;
         }
         public string opToString()
         {

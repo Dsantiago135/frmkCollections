@@ -37,6 +37,7 @@ namespace pkgServices.pkgCollections.pkgIterator
         {
             if (!opIsThereNext()) return false;
             opGoForward();
+            attCurrentIdx++;
             return true;
         }
         public virtual bool opGoLast()
