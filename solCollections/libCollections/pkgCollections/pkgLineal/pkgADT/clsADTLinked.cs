@@ -181,6 +181,9 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
         #region Utilities
         public bool opSetAccessDoors()
         {
+            //La operacion opSetAccessDoors se usara para dar valores a las puertas de acceso
+            //buscado dar facilidad a las operaciones que de insercion y extraccion el modificar estas. 
+            
             return true;
         }
         #endregion
