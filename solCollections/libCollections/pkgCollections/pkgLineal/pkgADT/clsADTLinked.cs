@@ -85,6 +85,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
             if (prmArray == null) return false;
             if (prmArray.Length == 0) return false;
             if (prmArray.Length > attMaxCapacity) return false;
+
             attFirst = new clsLinkedNode<T>(prmArray[0]);
             attMiddle = attFirst;
             clsLinkedNode<T> varPreviousNode = attFirst;
@@ -107,9 +108,10 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
         {
             if (attLength==0) return null;
             T[] varArrayItems= new T[attLength];
+            opGoFirst();
+
             for (int varCount=0;varCount<attLength;varCount++)
             {
-                opGoFirst();
                 varArrayItems[varCount]=attCurrentItem;
                 opGoNext();
             }
@@ -173,6 +175,12 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
             attCurrentNode = attLast;
             attCurrentItem = attCurrentNode.opGetItem();
             attCurrentIdx = attLength - 1;
+            return true;
+        }
+        #endregion
+        #region Utilities
+        public bool opSetAccessDoors()
+        {
             return true;
         }
         #endregion

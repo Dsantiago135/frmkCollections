@@ -18,17 +18,9 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgLinked
             if (attLength != 0) varNewNode.opSetNext(attFirst);
 
             //operacion para asignar puertas de entrada
-            opGo(0);
-            attFirst = varNewNode;
-            opGo(attLength/4);
-            attFirstQuarter = attCurrentNode;
-            opGo(attLength/2);
-            attMiddle = attCurrentNode;
-            opGo((attLength/2)+(attLength/4));
-            attLastQuarter = attCurrentNode;
-            opGo(attLength - 1);
-            attLast = attCurrentNode;
+            opSetAccessDoors();
 
+            attFirst = varNewNode;
             attCurrentNode = varNewNode;
             attCurrentIdx = 0;
             attCurrentItem = attCurrentNode.opGetItem();
