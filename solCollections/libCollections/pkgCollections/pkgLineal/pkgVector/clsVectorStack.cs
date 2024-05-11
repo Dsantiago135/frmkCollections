@@ -27,7 +27,10 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgVector
                 attItems[varIdx] = attItems[varIdx - 1];
                 varIdx--;
             }
+
             attItems[0] = prmItem;
+            attCurrentIdx = 0;
+            attCurrentItem = attItems[0];
             attLength++;
             return true;
         }
@@ -49,6 +52,8 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgVector
                     attItems[idx] = attItems[idx + 1];
                 }
             }
+            attCurrentIdx = 0;
+            attCurrentItem = attItems[0];
             attLength--;
             return true;
         }

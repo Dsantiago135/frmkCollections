@@ -147,14 +147,6 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
             attCurrentItem = attItems[attCurrentIdx];
         }
         #endregion
-        #region CRUDS
-        public override bool opRetrieve(int prmIdx, ref T prmItem)
-        {
-            if (!opGo(prmIdx))return false;
-                prmItem = attCurrentItem;
-            return true;
-        }
-        #endregion
         #region Utilities
         public bool opIncreaseCapacity()
         {

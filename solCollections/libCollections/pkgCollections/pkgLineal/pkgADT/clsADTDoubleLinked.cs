@@ -12,7 +12,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
         protected clsDoubleLinkedNode<T> attMiddle = default;
         protected clsDoubleLinkedNode<T> attLastQuarter = default;
         protected clsDoubleLinkedNode<T> attLast = default;
-        protected clsDoubleLinkedNode<T> attCurrentNode;
+        protected clsDoubleLinkedNode<T> attCurrentNode = new clsDoubleLinkedNode<T>();
         #endregion
         #region Operations
         #region Builders

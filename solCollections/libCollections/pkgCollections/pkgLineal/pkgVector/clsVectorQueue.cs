@@ -20,8 +20,10 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgVector
             if (attLength == attMaxCapacity) return false;
             if (attTotalCapacity == attLength && !attItsFlexible) return false;
             if (attTotalCapacity == attLength) opIncreaseCapacity();
-
+            
             attItems[attLength] = prmItem;
+            attCurrentIdx = attLength;
+            attCurrentItem = attItems[attLength];
             attLength++;
             return true;
         }
@@ -44,7 +46,10 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgVector
                     attItems[idx] = attItems[idx + 1];
                 }
             }
+
             attLength--;
+            attCurrentIdx = attLength - 1;
+            attCurrentItem = attItems[attCurrentIdx];
             return true;
         }
         #endregion

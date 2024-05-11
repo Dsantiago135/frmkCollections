@@ -23,6 +23,8 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgVector
             if (attTotalCapacity == attLength) opIncreaseCapacity();
 
             attItems[attLength] = prmItem;
+            attCurrentIdx = attLength;
+            attCurrentItem = attItems[attLength];
             attLength++;
             return true;
         }
@@ -32,8 +34,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgVector
         }
         public bool opRemove(int prmIdx, ref T prmItem)
         {
-            if (prmIdx > attLength - 1) return false;
-            if (prmIdx < 0) return false;
+            if (!opIsValid(prmIdx)) return false;
             prmItem = attItems[prmIdx];
             if (prmIdx != attLength - 1)
                 for (int varCount = prmIdx; varCount < attLength ; varCount++)
@@ -41,6 +42,8 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgVector
                     attItems[varCount] = attItems[varCount + 1];
                 }
             attLength--;
+            attCurrentIdx = attLength - 1;
+            attCurrentItem = attItems[attCurrentIdx];
             return true;
         } 
         #endregion

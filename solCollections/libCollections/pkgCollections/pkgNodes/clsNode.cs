@@ -15,7 +15,7 @@ namespace pkgServices.pkgCollections.pkgNodes
         }
         public clsNode(T prmItem)
         {
-            throw new NotImplementedException();
+            attItem= prmItem;
         }
         #endregion
         #region Getter

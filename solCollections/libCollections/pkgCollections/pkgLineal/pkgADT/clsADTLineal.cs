@@ -71,9 +71,11 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
             return opSetCurrentItem(prmItem);
             ;
         }
-        public virtual bool opRetrieve(int prmIdx, ref T prmItem)
+        public bool opRetrieve(int prmIdx, ref T prmItem)
         {
-            throw new NotImplementedException();
+            if (!opGo(prmIdx)) return false;
+            prmItem = attCurrentItem;
+            return true;
         }
         public bool opReverse()
         {

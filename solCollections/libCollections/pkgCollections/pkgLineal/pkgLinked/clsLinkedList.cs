@@ -1,4 +1,5 @@
 ﻿using pkgServices.pkgCollections.pkgLineal.pkgADT;
+using pkgServices.pkgCollections.pkgNodes;
 using System;
 
 namespace pkgServices.pkgCollections.pkgLineal.pkgLinked
@@ -8,17 +9,85 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgLinked
         #region Builders
         public clsLinkedList()
         {
-            throw new NotImplementedException();
+            
         }
         #endregion
         #region CRUDS
-        public bool opAdd(T item) 
+        public bool opAdd(T prmItem) 
         {
-            throw new NotImplementedException();
+            clsLinkedNode<T> varNewNode = new clsLinkedNode<T>(prmItem);
+            if (attLength != 0) attLast.opSetNext(varNewNode);
+
+            //operacion para asignar puertas de entrada
+            opGo(0);
+            attFirst = attCurrentNode;
+            opGo(attLength / 4);
+            attFirstQuarter = attCurrentNode;
+            opGo(attLength / 2);
+            attMiddle = attCurrentNode;
+            opGo((attLength / 2) + (attLength / 4));
+            attLastQuarter = attCurrentNode;
+            attLast = varNewNode;
+
+            attCurrentNode = varNewNode;
+            attCurrentIdx = attLength;
+            attCurrentItem = attCurrentNode.opGetItem();
+            attLength++;
+            return true;
         }
-        public bool opRemove(int prmIdx,ref T item) 
-        {  
-            throw new NotImplementedException();
+        public bool opRemove(int prmIdx,ref T prmItem) 
+        {
+            if(!opGo(prmIdx))return false;
+            prmItem = attCurrentItem;
+            if (opIsTherePrevious() && opIsThereNext())
+            {
+                clsLinkedNode<T> varNodeNext = attCurrentNode;
+                opGoPrevious();
+                attCurrentNode.opSetNext(varNodeNext);
+
+                opGo(attLength / 4);
+                attFirstQuarter = attCurrentNode;
+                opGo(attLength / 2);
+                attMiddle = attCurrentNode;
+                opGo((attLength / 2) + (attLength / 4));
+                attLastQuarter = attCurrentNode;
+
+                attCurrentNode = varNodeNext;
+            }
+            else if (!opIsThereNext())
+            {
+                opGoPrevious();
+                attLast = attCurrentNode;
+                attCurrentNode.opSetNext(default);
+
+                opGo(attLength / 4);
+                attFirstQuarter = attCurrentNode;
+                opGo(attLength / 2);
+                attMiddle = attCurrentNode;
+                opGo((attLength / 2) + (attLength / 4));
+                attLastQuarter = attCurrentNode;
+
+                attCurrentNode = attLast;
+            }
+            else
+            {
+                opGoNext();
+                attFirst = attCurrentNode;
+
+                opGo(attLength / 4);
+                attFirstQuarter = attCurrentNode;
+                opGo(attLength / 2);
+                attMiddle = attCurrentNode;
+                opGo((attLength / 2) + (attLength / 4));
+                attLastQuarter = attCurrentNode;
+
+                attCurrentNode = attFirst;
+            }
+
+            attCurrentIdx = 0;
+            attCurrentItem = attCurrentNode.opGetItem();
+            attLength--;
+            return true;
         }
         #endregion
     }
