@@ -17,15 +17,14 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgLinked
         {
             clsLinkedNode<T> varNewNode = new clsLinkedNode<T>(prmItem);
             if (attLength != 0) attLast.opSetNext(varNewNode);
+            attLength++;
 
             //operacion para asignar puertas de entrada
             opSetAccessDoors();
 
-            attLast=varNewNode;
             attCurrentNode = varNewNode;
             attCurrentIdx = attLength;
             attCurrentItem = attCurrentNode.opGetItem();
-            attLength++;
             return true;
         }
         public bool opRemove(int prmIdx,ref T prmItem) 

@@ -99,6 +99,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
                 if (varIdx == ((prmArray.Length / 2) + (prmArray.Length/4))) attLastQuarter = varCurrentNode;
                 varPreviousNode = varCurrentNode;
             }
+            attLength = prmArray.Length;
             attLast = varCurrentNode;
             attitsOrdenedAscending = false;
             attitsOrdenedDescending = false;
@@ -107,10 +108,9 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
         public override T[] opToArray()
         {
             if (attLength==0) return null;
-            T[] varArrayItems= new T[attLength];
+            T[] varArrayItems = new T[attLength];
             opGoFirst();
-
-            for (int varCount=0;varCount<attLength;varCount++)
+            for (int varCount=0; varCount<attLength ; varCount++)
             {
                 varArrayItems[varCount]=attCurrentItem;
                 opGoNext();
@@ -181,9 +181,18 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
         #region Utilities
         public bool opSetAccessDoors()
         {
-            //La operacion opSetAccessDoors se usara para dar valores a las puertas de acceso
-            //buscado dar facilidad a las operaciones que de insercion y extraccion el modificar estas. 
-            
+            if (attLength == 0) return false;
+            T[] vararray = opToArray();
+            clsLinkedNode<T> varnode = new clsLinkedNode<T>(vararray[0]);
+            attFirst = varnode;
+            varnode = new clsLinkedNode<T>(vararray[attLength / 4]);
+            attFirstQuarter = varnode;
+            varnode = new clsLinkedNode<T>(vararray[attLength / 2]);
+            attMiddle = varnode;
+            varnode = new clsLinkedNode<T>(vararray[(attLength / 4) + (attLength / 2)]);
+            attLastQuarter = varnode;
+            varnode = new clsLinkedNode<T>(vararray[attLength - 1]);
+            attLast = varnode;
             return true;
         }
         #endregion

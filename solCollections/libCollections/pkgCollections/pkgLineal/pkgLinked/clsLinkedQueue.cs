@@ -17,15 +17,14 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgLinked
         {
             clsLinkedNode<T> varNewNode = new clsLinkedNode<T>(prmItem);
             if (attLength != 0) attLast.opSetNext(varNewNode);
+            attLength++;
 
             //operacion para asignar puertas de entrada
             opSetAccessDoors();
 
-            attLast = varNewNode;
             attCurrentNode = varNewNode;
             attCurrentIdx = attLength;
             attCurrentItem = attCurrentNode.opGetItem();
-            attLength++;
             return true;
         }
         public bool opPeek(ref T prmItem)
@@ -39,16 +38,18 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgLinked
         {
             if (attLength == 0) return false;
 
-            opGoLast();
+            opGoFirst();
             prmItem = attCurrentItem;
-            opGoPrevious();
-            attCurrentNode.opSetNext(default);
-            attLast = attCurrentNode;
+            opGoNext();
+            attFirst = null;
+            attFirst = attCurrentNode;
+            attLength--;
 
             //operacion para asignar puertas de entrada
+            opSetAccessDoors();
 
-            attLength--;
-            attCurrentIdx = attLength-1;
+            opGo(0);
+            attCurrentIdx = 0;
             attCurrentItem = attCurrentNode.opGetItem();
             return true;
         }
