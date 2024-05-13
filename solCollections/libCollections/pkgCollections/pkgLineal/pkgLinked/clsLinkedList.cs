@@ -19,7 +19,6 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgLinked
             if (attLength != 0) attLast.opSetNext(varNewNode);
             attLength++;
 
-            //operacion para asignar puertas de entrada
             opSetAccessDoors();
 
             attCurrentNode = varNewNode;
@@ -34,44 +33,33 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgLinked
             if (opIsTherePrevious() && opIsThereNext())
             {
                 clsLinkedNode<T> varNodeNext = attCurrentNode;
-                opGoPrevious();
-                attCurrentNode.opSetNext(varNodeNext);
-
-                opGo(attLength / 4);
-                attFirstQuarter = attCurrentNode;
-                opGo(attLength / 2);
-                attMiddle = attCurrentNode;
-                opGo((attLength / 2) + (attLength / 4));
-                attLastQuarter = attCurrentNode;
-
+                attCurrentNode = null;
                 attCurrentNode = varNodeNext;
+                opGoPrevious();
+                attCurrentNode.opSetNext(varNodeNext.opGetNext());
+
+                opSetAccessDoors();
+
+                opGo(prmIdx);
             }
             else if (!opIsThereNext())
             {
                 opGoPrevious();
+                attLast = null;
                 attLast = attCurrentNode;
                 attCurrentNode.opSetNext(default);
 
-                opGo(attLength / 4);
-                attFirstQuarter = attCurrentNode;
-                opGo(attLength / 2);
-                attMiddle = attCurrentNode;
-                opGo((attLength / 2) + (attLength / 4));
-                attLastQuarter = attCurrentNode;
+                opSetAccessDoors();
 
                 attCurrentNode = attLast;
             }
             else
             {
                 opGoNext();
+                attFirst = null;
                 attFirst = attCurrentNode;
 
-                opGo(attLength / 4);
-                attFirstQuarter = attCurrentNode;
-                opGo(attLength / 2);
-                attMiddle = attCurrentNode;
-                opGo((attLength / 2) + (attLength / 4));
-                attLastQuarter = attCurrentNode;
+                opSetAccessDoors();
 
                 attCurrentNode = attFirst;
             }

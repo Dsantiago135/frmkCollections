@@ -40,16 +40,16 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
         #region Serialize/Deserialize
         public virtual T[] opToArray()
         {
-            throw new NotImplementedException();
-        //    if (opItsEmpty()) return null;
-        //    T[] varArray = new T[attLength];
-        //    opGoFirst();
-        //    do
-        //    {
-        //        varArray[attCurrentIdx] = attCurrentItem;
-        //    } while (opGoNext());
+            if (attLength == 0) return null;
+            T[] varArrayItems = new T[attLength];
+            opGoFirst();
 
-        //    return varArray;
+            for (int varCount = 0; varCount < attLength; varCount++)
+            {
+                varArrayItems[varCount] = attCurrentItem;
+                opGoNext();
+            }
+            return varArrayItems;
         }
         public string opToString()
         {

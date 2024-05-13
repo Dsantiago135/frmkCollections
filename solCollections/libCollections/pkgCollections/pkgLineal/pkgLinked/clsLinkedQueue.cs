@@ -15,11 +15,12 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgLinked
         #region CRUDS
         public bool opPush(T prmItem)
         {
+            if (attLength == attMaxCapacity) return false;
             clsLinkedNode<T> varNewNode = new clsLinkedNode<T>(prmItem);
             if (attLength != 0) attLast.opSetNext(varNewNode);
             attLength++;
+            if (attLength == 1) attFirst = varNewNode;
 
-            //operacion para asignar puertas de entrada
             opSetAccessDoors();
 
             attCurrentNode = varNewNode;
@@ -45,10 +46,9 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgLinked
             attFirst = attCurrentNode;
             attLength--;
 
-            //operacion para asignar puertas de entrada
             opSetAccessDoors();
 
-            opGo(0);
+            opGoFirst();
             attCurrentIdx = 0;
             attCurrentItem = attCurrentNode.opGetItem();
             return true;

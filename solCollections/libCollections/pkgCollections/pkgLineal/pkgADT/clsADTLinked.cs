@@ -99,6 +99,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
                 if (varIdx == ((prmArray.Length / 2) + (prmArray.Length/4))) attLastQuarter = varCurrentNode;
                 varPreviousNode = varCurrentNode;
             }
+
             attLength = prmArray.Length;
             attLast = varCurrentNode;
             attitsOrdenedAscending = false;
@@ -110,9 +111,10 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
             if (attLength==0) return null;
             T[] varArrayItems = new T[attLength];
             opGoFirst();
-            for (int varCount=0; varCount<attLength ; varCount++)
+            
+            for(int varCount = 0; varCount < attLength; varCount++)
             {
-                varArrayItems[varCount]=attCurrentItem;
+                varArrayItems[varCount] = attCurrentItem;
                 opGoNext();
             }
             return varArrayItems;
@@ -182,17 +184,17 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
         public bool opSetAccessDoors()
         {
             if (attLength == 0) return false;
-            T[] vararray = opToArray();
-            clsLinkedNode<T> varnode = new clsLinkedNode<T>(vararray[0]);
-            attFirst = varnode;
-            varnode = new clsLinkedNode<T>(vararray[attLength / 4]);
-            attFirstQuarter = varnode;
-            varnode = new clsLinkedNode<T>(vararray[attLength / 2]);
-            attMiddle = varnode;
-            varnode = new clsLinkedNode<T>(vararray[(attLength / 4) + (attLength / 2)]);
-            attLastQuarter = varnode;
-            varnode = new clsLinkedNode<T>(vararray[attLength - 1]);
-            attLast = varnode;
+            T[] varArray = opToArray();
+            opToItems(varArray);
+            if (attLength==1)
+            {
+                opGoFirst();
+                attFirst = attCurrentNode;
+                attFirstQuarter = attCurrentNode;
+                attMiddle = attCurrentNode;
+                attLastQuarter = attCurrentNode;
+                attLast = attCurrentNode;
+            }
             return true;
         }
         #endregion

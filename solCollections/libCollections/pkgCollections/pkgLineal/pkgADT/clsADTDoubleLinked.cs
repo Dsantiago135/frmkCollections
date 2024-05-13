@@ -98,13 +98,23 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
                 varPreviousNode = varCurrentNode;
             }
             attLast = varCurrentNode;
+            attLength = prmArray.Length;
             attitsOrdenedAscending = false;
             attitsOrdenedDescending = false;
             return true;
         }
         public override T[] opToArray()
         {
-            throw new NotImplementedException();
+            if (attLength == 0) return null;
+            T[] varArrayItems = new T[attLength];
+            opGoFirst();
+
+            for (int varCount = 0; varCount < attLength; varCount++)
+            {
+                varArrayItems[varCount] = attCurrentItem;
+                opGoNext();
+            }
+            return varArrayItems;
         }
         #endregion
         #region Iterator
@@ -170,6 +180,24 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
             attCurrentNode =attLast ;
             attCurrentItem = attCurrentNode.opGetItem();
             attCurrentIdx = attLength-1;
+            return true;
+        }
+        #endregion
+        #region Utilities
+        public bool opSetAccessDoors()
+        {
+            if (attLength == 0) return false;
+            T[] varArray = opToArray();
+            opToItems(varArray);
+            if (attLength == 1)
+            {
+                opGoFirst();
+                attFirst = attCurrentNode;
+                attFirstQuarter = attCurrentNode;
+                attMiddle = attCurrentNode;
+                attLastQuarter = attCurrentNode;
+                attLast = attCurrentNode;
+            }
             return true;
         }
         #endregion

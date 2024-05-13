@@ -1,5 +1,6 @@
 ﻿using System;
 using pkgServices.pkgCollections.pkgLineal.pkgADT;
+using pkgServices.pkgCollections.pkgNodes;
 
 namespace pkgServices.pkgCollections.pkgLineal.pkgDoubleLinked
 {
@@ -8,17 +9,74 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgDoubleLinked
         #region Builders
         public clsDoubleLinkedList()
         {
-            throw new NotImplementedException();
+            
         }
         #endregion
         #region CRUDS
-        public bool opAdd(T item)
+        public bool opAdd(T prmItem)
         {
-            throw new NotImplementedException();
+            clsDoubleLinkedNode<T> varNewNode = new clsDoubleLinkedNode<T>(prmItem);
+            if (attLength != 0)
+            {
+                attLast.opSetNext(varNewNode);
+                varNewNode.opSetPrevious(attLast);
+            }
+            attLength++;
+
+            opSetAccessDoors();
+
+            attCurrentNode = varNewNode;
+            attCurrentIdx = attLength;
+            attCurrentItem = attCurrentNode.opGetItem();
+            return true;
         }
-        public bool opRemove(int prmIdx, ref T item)
+        public bool opRemove(int prmIdx, ref T prmItem)
         {
-            throw new NotImplementedException();
+            if (!opGo(prmIdx)) return false;
+            prmItem = attCurrentItem;
+            if (opIsTherePrevious() && opIsThereNext())
+            {
+                clsDoubleLinkedNode<T> varNodeNext = attCurrentNode;
+                attCurrentNode = null;
+                attCurrentNode = varNodeNext;
+                opGoPrevious();
+                attCurrentNode.opSetNext(varNodeNext.opGetNext());
+                opGoNext();
+                attCurrentNode.opSetPrevious(varNodeNext.opGetPrevious());
+
+                opSetAccessDoors();
+
+                opGo(prmIdx);
+            }
+            else if (!opIsThereNext())
+            {
+                opGoLast();
+                opGoPrevious();
+                attLast = null;
+                attLast = attCurrentNode;
+                attCurrentNode.opSetNext(default);
+
+                opSetAccessDoors();
+
+                attCurrentNode = attLast;
+            }
+            else
+            {
+                opGoFirst();
+                opGoNext();
+                attFirst = null;
+                attFirst = attCurrentNode;
+                attCurrentNode.opSetPrevious(default);
+
+                opSetAccessDoors();
+
+                attCurrentNode = attFirst;
+            }
+
+            attCurrentIdx = 0;
+            attCurrentItem = attCurrentNode.opGetItem();
+            attLength--;
+            return true;
         }
         #endregion
     }
