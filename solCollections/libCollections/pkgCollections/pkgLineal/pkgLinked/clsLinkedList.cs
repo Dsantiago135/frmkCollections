@@ -37,6 +37,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgLinked
                 attCurrentNode = varNodeNext;
                 opGoPrevious();
                 attCurrentNode.opSetNext(varNodeNext.opGetNext());
+                attLength--;
 
                 opSetAccessDoors();
 
@@ -48,6 +49,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgLinked
                 attLast = null;
                 attLast = attCurrentNode;
                 attCurrentNode.opSetNext(default);
+                attLength--;
 
                 opSetAccessDoors();
 
@@ -58,6 +60,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgLinked
                 opGoNext();
                 attFirst = null;
                 attFirst = attCurrentNode;
+                attLength--;
 
                 opSetAccessDoors();
 
@@ -66,7 +69,6 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgLinked
 
             attCurrentIdx = 0;
             attCurrentItem = attCurrentNode.opGetItem();
-            attLength--;
             return true;
         }
         #endregion
