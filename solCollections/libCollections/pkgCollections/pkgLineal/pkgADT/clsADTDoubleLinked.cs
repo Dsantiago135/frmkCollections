@@ -92,6 +92,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
             {
                 varCurrentNode = new clsDoubleLinkedNode<T>(prmArray[varIdx]);
                 varPreviousNode.opSetNext(varCurrentNode);
+                varCurrentNode.opSetPrevious(varPreviousNode);
                 if (varIdx == (prmArray.Length / 4)) attFirstQuarter = varCurrentNode;
                 if (varIdx == (prmArray.Length / 2)) attMiddle = varCurrentNode;
                 if (varIdx == ((prmArray.Length / 2) + (prmArray.Length / 4))) attLastQuarter = varCurrentNode;
@@ -101,6 +102,9 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
             attLength = prmArray.Length;
             attitsOrdenedAscending = false;
             attitsOrdenedDescending = false;
+            attCurrentNode = attFirst;
+            attCurrentIdx = 0;
+            attCurrentItem = attCurrentNode.opGetItem();
             return true;
         }
         public override T[] opToArray()
