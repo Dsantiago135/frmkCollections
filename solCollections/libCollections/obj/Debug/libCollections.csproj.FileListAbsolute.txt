@@ -1,0 +1,6 @@
+C:\Users\Santiago Ordoñez\OneDrive\Documentos\Santi\Repositorios\frmkCollections\solCollections\libCollections\bin\Debug\libCollections.dll
+C:\Users\Santiago Ordoñez\OneDrive\Documentos\Santi\Repositorios\frmkCollections\solCollections\libCollections\bin\Debug\libCollections.pdb
+C:\Users\Santiago Ordoñez\OneDrive\Documentos\Santi\Repositorios\frmkCollections\solCollections\libCollections\obj\Debug\libCollections.csproj.AssemblyReference.cache
+C:\Users\Santiago Ordoñez\OneDrive\Documentos\Santi\Repositorios\frmkCollections\solCollections\libCollections\obj\Debug\libCollections.csproj.CoreCompileInputs.cache
+C:\Users\Santiago Ordoñez\OneDrive\Documentos\Santi\Repositorios\frmkCollections\solCollections\libCollections\obj\Debug\libCollections.dll
+C:\Users\Santiago Ordoñez\OneDrive\Documentos\Santi\Repositorios\frmkCollections\solCollections\libCollections\obj\Debug\libCollections.pdb
