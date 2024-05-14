@@ -190,6 +190,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
         #region Utilities
         public bool opSetAccessDoors()
         {
+            //-----*optimizar*----- 
             if (attLength == 0) return false;
             T[] varArray = opToArray();
             opToItems(varArray);
