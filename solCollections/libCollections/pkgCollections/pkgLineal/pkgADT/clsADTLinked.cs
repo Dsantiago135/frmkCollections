@@ -87,7 +87,9 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
             if (prmArray.Length > attMaxCapacity) return false;
 
             attFirst = new clsLinkedNode<T>(prmArray[0]);
+            attFirstQuarter = attFirst;
             attMiddle = attFirst;
+            attLastQuarter = attFirst;
             clsLinkedNode<T> varPreviousNode = attFirst;
             clsLinkedNode<T> varCurrentNode = attFirst;
             for (int varIdx=1;varIdx<prmArray.Length;varIdx++)
@@ -108,11 +110,11 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
         }
         public override T[] opToArray()
         {
-            if (attLength==0) return null;
+            if (attLength == 0) return null;
             T[] varArrayItems = new T[attLength];
             opGoFirst();
-            
-            for(int varCount = 0; varCount < attLength; varCount++)
+
+            for (int varCount = 0; varCount < attLength; varCount++)
             {
                 varArrayItems[varCount] = attCurrentItem;
                 opGoNext();

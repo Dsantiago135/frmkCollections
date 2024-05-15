@@ -26,22 +26,21 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgLinked
             attCurrentItem = attCurrentNode.opGetItem();
             return true;
         }
-        public bool opRemove(int prmIdx,ref T prmItem) 
+        public bool opRemove(int prmIdx, ref T prmItem)
         {
-            if(!opGo(prmIdx))return false;
+            if (!opGo(prmIdx)) return false;
             prmItem = attCurrentItem;
             if (opIsTherePrevious() && opIsThereNext())
             {
                 clsLinkedNode<T> varNodeNext = attCurrentNode;
                 attCurrentNode = null;
                 attCurrentNode = varNodeNext;
-                opGoPrevious();
+                opGo(prmIdx-1);
                 attCurrentNode.opSetNext(varNodeNext.opGetNext());
                 attLength--;
 
                 opSetAccessDoors();
 
-                opGo(prmIdx);
             }
             else if (!opIsThereNext())
             {
@@ -53,7 +52,6 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgLinked
 
                 opSetAccessDoors();
 
-                attCurrentNode = attLast;
             }
             else
             {
@@ -64,7 +62,6 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgLinked
 
                 opSetAccessDoors();
 
-                attCurrentNode = attFirst;
             }
 
             attCurrentIdx = 0;

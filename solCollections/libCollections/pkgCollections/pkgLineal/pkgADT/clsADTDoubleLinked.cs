@@ -85,7 +85,9 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
             if (prmArray == null) return false;
             if (prmArray.Length == 0) return false;
             attFirst = new clsDoubleLinkedNode<T>(prmArray[0]);
+            attFirstQuarter = attFirst;
             attMiddle = attFirst;
+            attLastQuarter = attFirst;
             clsDoubleLinkedNode<T> varPreviousNode = attFirst;
             clsDoubleLinkedNode<T> varCurrentNode = attFirst;
             for (int varIdx = 1; varIdx < prmArray.Length; varIdx++)

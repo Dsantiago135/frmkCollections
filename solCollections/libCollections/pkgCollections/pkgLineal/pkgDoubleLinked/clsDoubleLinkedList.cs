@@ -47,7 +47,6 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgDoubleLinked
 
                 opSetAccessDoors();
 
-                opGo(prmIdx);
             }
             else if (!opIsThereNext())
             {
@@ -60,7 +59,6 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgDoubleLinked
 
                 opSetAccessDoors();
 
-                attCurrentNode = attLast;
             }
             else
             {
@@ -73,7 +71,6 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgDoubleLinked
 
                 opSetAccessDoors();
 
-                attCurrentNode = attFirst;
             }
 
             attCurrentIdx = 0;
