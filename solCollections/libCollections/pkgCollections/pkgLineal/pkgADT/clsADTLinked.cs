@@ -108,19 +108,6 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
             attitsOrdenedDescending = false;
             return true;
         }
-        public override T[] opToArray()
-        {
-            if (attLength == 0) return null;
-            T[] varArrayItems = new T[attLength];
-            opGoFirst();
-
-            for (int varCount = 0; varCount < attLength; varCount++)
-            {
-                varArrayItems[varCount] = attCurrentItem;
-                opGoNext();
-            }
-            return varArrayItems;
-        }
         #endregion
         #region Iterator
         public override bool opGo(int prmIdx)
