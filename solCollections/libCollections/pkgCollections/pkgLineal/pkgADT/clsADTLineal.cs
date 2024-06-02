@@ -98,9 +98,9 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
                         {
                             if (varArray[j].CompareTo(varArray[j + 1]) > 0)
                             {
-                                T temp = varArray[j];
+                                T varTemCopy = varArray[j];
                                 varArray[j] = varArray[j + 1];
-                                varArray[j + 1] = temp;
+                                varArray[j + 1] = varTemCopy;
                             }
                         }
                     }
@@ -115,9 +115,9 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
                         {
                             if (varArray[j].CompareTo(varArray[j + 1]) < 0)
                             {
-                                T temp = varArray[j];
+                                T varTemCopy = varArray[j];
                                 varArray[j] = varArray[j+1];
-                                varArray[j+1] = temp;
+                                varArray[j+1] = varTemCopy;
                             }
                         }
                     }
