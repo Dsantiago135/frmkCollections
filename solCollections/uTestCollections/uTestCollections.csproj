@@ -57,6 +57,7 @@
     <Compile Include="uTestLinkedList.cs" />
     <Compile Include="uTestLinkedQueue.cs" />
     <Compile Include="uTestLinkedStack.cs" />
+    <Compile Include="uTestSorting.cs" />
     <Compile Include="uTestVectorList.cs" />
     <Compile Include="uTestVectorQueue.cs" />
     <Compile Include="uTestVectorStack.cs" />

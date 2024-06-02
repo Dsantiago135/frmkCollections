@@ -1,7 +1,6 @@
 ﻿using pkgServices.pkgCollections.pkgIterator;
 using pkgServices.pkgCollections.pkgLineal.pkgInterfaces;
 using System;
-using System.Net.Http.Headers;
 
 namespace pkgServices.pkgCollections.pkgLineal.pkgADT
 {
@@ -78,6 +77,64 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
             return true;
         }
         public bool opReverse()
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
+        #region Sort
+        public bool opBubbleSort(bool prmInAscinding)
+        {
+            {
+                if (attLength == 0) return false;
+                if(prmInAscinding == attitsOrdenedAscending) return true;
+                if(!prmInAscinding != attitsOrdenedDescending) return true;
+
+                T[] varArray=opToArray();
+
+                if (prmInAscinding) {
+                    for (int i = 0; i < attLength - 1; i++)
+                    {
+                        for (int j = 0; j < attLength - 1 - i; j++)
+                        {
+                            if (varArray[j].CompareTo(varArray[j + 1]) > 0)
+                            {
+                                // Intercambiar los elementos
+                                T temp = varArray[j];
+                                varArray[j] = varArray[j + 1];
+                                varArray[j + 1] = temp;
+                            }
+                        }
+                    }
+                }else
+                    for (int i = 0; i < attLength - 1; i++)
+                    {
+                        for (int j = 0; j < attLength - 1 - i; j++)
+                        {
+                            if (varArray[j].CompareTo(varArray[j + 1]) > 0)
+                            {
+                                // Intercambiar los elementos
+                                T temp = varArray[j];
+                                varArray[j] = varArray[j + 1];
+                                varArray[j + 1] = temp;
+                            }
+                        }
+                    }
+            }
+                return true;
+        }
+        public bool opQuickSort(bool prmInAsending)
+        {
+            throw new NotImplementedException();
+        }
+        public bool opMergeSort(bool prmInAsending)
+        {
+            throw new NotImplementedException();
+        }
+        public bool opInsertSort(bool prmInAsending)
+        {
+            throw new NotImplementedException();
+        }
+        public bool opCocktailSort(bool prmInAsending)
         {
             throw new NotImplementedException();
         }

@@ -1,5 +1,6 @@
 ﻿using pkgServices.pkgCollections.pkgLineal.pkgInterfaces;
 using System;
+using System.Security.AccessControl;
 
 namespace pkgServices.pkgCollections.pkgLineal.pkgADT
 {
@@ -96,6 +97,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
         #region Serialize/Deserialize
         public override T[] opToArray()
         {
+            if (attLength == 0) return null;
             return attItems;
         }
         public override bool opToItems(T[] prmArray)
