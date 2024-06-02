@@ -84,43 +84,47 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
         #region Sort
         public bool opBubbleSort(bool prmInAscinding)
         {
-            {
                 if (attLength == 0) return false;
-                if(prmInAscinding == attitsOrdenedAscending) return true;
-                if(!prmInAscinding != attitsOrdenedDescending) return true;
+                if (prmInAscinding && attitsOrdenedAscending) return true;
+                if (!prmInAscinding && attitsOrdenedDescending) return true;
 
-                T[] varArray=opToArray();
+                T[] varArray = opToArray();
 
-                if (prmInAscinding) {
+                if (prmInAscinding)
+                {
                     for (int i = 0; i < attLength - 1; i++)
                     {
                         for (int j = 0; j < attLength - 1 - i; j++)
                         {
                             if (varArray[j].CompareTo(varArray[j + 1]) > 0)
                             {
-                                // Intercambiar los elementos
                                 T temp = varArray[j];
                                 varArray[j] = varArray[j + 1];
                                 varArray[j + 1] = temp;
                             }
                         }
                     }
-                }else
+                    attitsOrdenedAscending = true;
+                    attitsOrdenedDescending = false;
+                }
+                else
+                {
                     for (int i = 0; i < attLength - 1; i++)
                     {
                         for (int j = 0; j < attLength - 1 - i; j++)
                         {
-                            if (varArray[j].CompareTo(varArray[j + 1]) > 0)
+                            if (varArray[j].CompareTo(varArray[j + 1]) < 0)
                             {
-                                // Intercambiar los elementos
                                 T temp = varArray[j];
-                                varArray[j] = varArray[j + 1];
-                                varArray[j + 1] = temp;
+                                varArray[j] = varArray[j+1];
+                                varArray[j+1] = temp;
                             }
                         }
                     }
-            }
-                return true;
+                    attitsOrdenedAscending = false;
+                    attitsOrdenedDescending = true;
+                }
+            return true;
         }
         public bool opQuickSort(bool prmInAsending)
         {
