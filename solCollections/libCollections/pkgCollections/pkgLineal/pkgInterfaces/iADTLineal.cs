@@ -20,5 +20,12 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgInterfaces
         bool opRetrieve(int prmIdx, ref T prmItem);
         bool opReverse();
         #endregion
+        #region Sort
+        bool opBubbleSort(bool prmInAscinding);
+        bool opQuickSort(bool prmInAsending);
+        bool opMergeSort(bool prmInAsending);
+        bool opInsertSort(bool prmInAsending);
+        bool opCocktailSort(bool prmInAsending);
+        #endregion
     }
 }
