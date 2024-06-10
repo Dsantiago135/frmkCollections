@@ -38,8 +38,8 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
             catch (Exception)
             {
                 attLength = 0;
-                attitsOrdenedAscending = false;
-                attitsOrdenedDescending = false;
+                attItsOrderedAscending = false;
+                attItsOrderedDescending = false;
                 attTotalCapacity = 100;
                 attItems = new T[100];
                 attItsFlexible = false;
@@ -109,8 +109,8 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
                 attTotalCapacity = attItems.Length;
                 if (attMaxCapacity-attLength < 100)
                     attGrowingFactor = attMaxCapacity-attLength;
-                attitsOrdenedAscending = false;
-                attitsOrdenedDescending = false;
+                attItsOrderedAscending = false;
+                attItsOrderedDescending = false;
             }
             return true;
         }
@@ -125,8 +125,8 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
             attTotalCapacity = prmArray.Length;
             if(attMaxCapacity-attLength < 100)
                 attGrowingFactor = attMaxCapacity-attLength;
-            attitsOrdenedAscending = false;
-            attitsOrdenedDescending = false;
+            attItsOrderedAscending = false;
+            attItsOrderedDescending = false;
             return true;
         }
         #endregion

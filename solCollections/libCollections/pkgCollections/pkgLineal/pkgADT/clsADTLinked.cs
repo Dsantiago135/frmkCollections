@@ -104,8 +104,8 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
 
             attLength = prmArray.Length;
             attLast = varCurrentNode;
-            attitsOrdenedAscending = false;
-            attitsOrdenedDescending = false;
+            attItsOrderedAscending = false;
+            attItsOrderedDescending = false;
             return true;
         }
         #endregion

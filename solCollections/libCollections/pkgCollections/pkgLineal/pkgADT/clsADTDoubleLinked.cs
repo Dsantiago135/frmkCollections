@@ -102,8 +102,8 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
             }
             attLast = varCurrentNode;
             attLength = prmArray.Length;
-            attitsOrdenedAscending = false;
-            attitsOrdenedDescending = false;
+            attItsOrderedAscending = false;
+            attItsOrderedDescending = false;
             attCurrentNode = attFirst;
             attCurrentIdx = 0;
             attCurrentItem = attCurrentNode.opGetItem();
