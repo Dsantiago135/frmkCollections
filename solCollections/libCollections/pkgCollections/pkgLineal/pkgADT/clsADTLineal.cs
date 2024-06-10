@@ -166,7 +166,66 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
             if (!prmInAscending && attItsOrderedDescending) return true;
             #endregion
             T[] varArray = opToArray();
+            opMergeSort(varArray, 0, attLength - 1);
 
+            void opMergeSort(T[] prmArray, int prmLow, int prmHigh)
+            {
+                if (prmLow < prmHigh)
+                {
+                    int varMiddle = prmLow + (prmHigh - prmLow) / 2;
+                    opMergeSort(prmArray, prmLow, varMiddle);
+                    opMergeSort(prmArray, varMiddle + 1, prmHigh);
+                    Merge(prmArray, prmLow, varMiddle, prmHigh);
+                }
+            }
+
+            void Merge(T[] prmArray, int prmLow, int prmMid, int prmHigh)
+            {
+                int n1 = prmMid - prmLow + 1;
+                int n2 = prmHigh - prmMid;
+
+                T[] left = new T[n1];
+                T[] right = new T[n2];
+
+                Array.Copy(prmArray, prmLow, left, 0, n1);
+                Array.Copy(prmArray, prmMid + 1, right, 0, n2);
+
+                int i = 0;
+                int j = 0;
+                int k = prmLow;
+
+                while (i < n1 && j < n2)
+                {
+                    if ((prmInAscending && left[i].CompareTo(right[j]) <= 0) ||
+                        (!prmInAscending && left[i].CompareTo(right[j]) >= 0))
+                    {
+                        prmArray[k] = left[i];
+                        i++;
+                    }
+                    else
+                    {
+                        prmArray[k] = right[j];
+                        j++;
+                    }
+                    k++;
+                }
+
+                while (i < n1)
+                {
+                    prmArray[k] = left[i];
+                    i++;
+                    k++;
+                }
+
+                while (j < n2)
+                {
+                    prmArray[k] = right[j];
+                    j++;
+                    k++;
+                }
+            }
+            attItsOrderedAscending = prmInAscending;
+            attItsOrderedDescending = !prmInAscending;
             return true;
         }
         public bool opInsertSort(bool prmInAscending)
@@ -176,7 +235,26 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
             if (prmInAscending && attItsOrderedAscending) return true;
             if (!prmInAscending && attItsOrderedDescending) return true;
             #endregion
+
             T[] varArray = opToArray();
+
+            for (int i = 1; i < attLength; i++)
+            {
+                T key = varArray[i];
+                int j = i - 1;
+
+                while (j >= 0 && ((prmInAscending && varArray[j].CompareTo(key) > 0) ||
+                                  (!prmInAscending && varArray[j].CompareTo(key) < 0)))
+                {
+                    varArray[j + 1] = varArray[j];
+                    j--;
+                }
+
+                varArray[j + 1] = key;
+            }
+
+            attItsOrderedAscending = prmInAscending;
+            attItsOrderedDescending = !prmInAscending;
             return true;
         }
         public bool opCocktailSort(bool prmInAscending)
