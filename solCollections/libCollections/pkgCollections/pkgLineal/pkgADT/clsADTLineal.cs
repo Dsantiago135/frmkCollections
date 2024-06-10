@@ -82,25 +82,27 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
         }
         #endregion
         #region Sort
-        public bool opBubbleSort(bool prmInAscinding)
+        public bool opBubbleSort(bool prmInAscending)
         {
-                if (attLength == 0) return false;
-                if (prmInAscinding && attitsOrdenedAscending) return true;
-                if (!prmInAscinding && attitsOrdenedDescending) return true;
+            #region Validations
+            if (attLength == 0) return false;
+            if (prmInAscending && attitsOrdenedAscending) return true;
+            if (!prmInAscending && attitsOrdenedDescending) return true; 
+            #endregion
 
-                T[] varArray = opToArray();
+            T[] varArray = opToArray();
 
-                if (prmInAscinding)
+                if (prmInAscending)
                 {
                     for (int i = 0; i < attLength - 1; i++)
                     {
-                        for (int j = 0; j < attLength - 1 - i; j++)
+                        for (int varCount = 0; varCount < attLength - 1 - i; varCount++)
                         {
-                            if (varArray[j].CompareTo(varArray[j + 1]) > 0)
+                            if (varArray[varCount].CompareTo(varArray[varCount + 1]) > 0)
                             {
-                                T varTemCopy = varArray[j];
-                                varArray[j] = varArray[j + 1];
-                                varArray[j + 1] = varTemCopy;
+                                T varTemCopy = varArray[varCount];
+                                varArray[varCount] = varArray[varCount + 1];
+                                varArray[varCount + 1] = varTemCopy;
                             }
                         }
                     }
@@ -126,13 +128,86 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
                 }
             return true;
         }
-        public bool opQuickSort(bool prmInAsending)
+        public bool opQuickSort(bool prmInAscending)
         {
-            throw new NotImplementedException();
+            #region Validations
+            if (attLength == 0) return false;
+            if (prmInAscending && attitsOrdenedAscending) return true;
+            if (!prmInAscending && attitsOrdenedDescending) return true;
+            #endregion
+            T[] varArray = opToArray();
+            int varLow = 0;
+            int varHigh = attLength-1;
+
+            opQuickSort(varArray, varLow, varHigh);
+            void opQuickSort(T[] prmArray, int prmLow, int prmHigh)
+            {
+                if (prmLow < prmHigh)
+                {
+                    int varPivote = opPartition(prmArray, prmLow, prmHigh);
+                    opQuickSort(prmArray, prmLow, varPivote - 1);
+                    opQuickSort(prmArray, varPivote + 1, varPivote - 1);
+                }
+                if (prmInAscending)
+                {
+                    attitsOrdenedAscending = true;
+                    attitsOrdenedDescending = false;
+                }
+                else
+                {
+                    attitsOrdenedAscending = false;
+                    attitsOrdenedDescending = true;
+                }
+            }
+            int opPartition(T[] prmVarArray, int prmLow, int prmHigh)
+            {
+                T varPivote = prmVarArray[prmHigh];
+                int i = prmLow - 1;
+
+                if(prmInAscending){
+                    for (int varCount = prmLow; varCount < prmHigh; varCount++)
+                    {
+                        if (prmVarArray[varCount].CompareTo(varPivote) < 0)
+                        {
+                            i++;
+                            opSwap(prmVarArray, i, varCount);
+                        }
+                    }
+                }
+                else
+                {
+                    for (int varCount = prmLow; varCount < prmHigh; varCount++)
+                    {
+                        if (prmVarArray[varCount].CompareTo(varPivote) > 0)
+                        {
+                            i++;
+                            opSwap(prmVarArray, i, varCount);
+                        }
+                    }
+                }
+                opSwap(prmVarArray, i + 1, prmHigh);
+
+                return i + 1;
+            }
+            void opSwap(T[] prmVarArray, int prmLow, int prmHigh)
+            {
+                T varTemp = prmVarArray[prmLow];
+                prmVarArray[prmLow] = prmVarArray[prmHigh];
+                prmVarArray[prmHigh] = varTemp;
+            }
+
+            return true;
         }
-        public bool opMergeSort(bool prmInAsending)
+        public bool opMergeSort(bool prmInAscending)
         {
-            throw new NotImplementedException();
+            #region Validations
+            if (attLength == 0) return false;
+            if (prmInAscending && attitsOrdenedAscending) return true;
+            if (!prmInAscending && attitsOrdenedDescending) return true;
+            #endregion
+            T[] varArray = opToArray();
+
+            return true;
         }
         public bool opInsertSort(bool prmInAsending)
         {
