@@ -1,6 +1,5 @@
 ﻿using pkgServices.pkgCollections.pkgIterator;
 using pkgServices.pkgCollections.pkgLineal.pkgInterfaces;
-using pkgServices.pkgCollections.pkgLineal.pkgLinked;
 using System;
 
 namespace pkgServices.pkgCollections.pkgLineal.pkgADT
