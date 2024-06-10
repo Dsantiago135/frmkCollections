@@ -96,8 +96,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
         #endregion
         #region Serialize/Deserialize
         public override T[] opToArray()
-        {
-            if (attLength == 0) return null;
+        { 
             return attItems;
         }
         public override bool opToItems(T[] prmArray)

@@ -1,5 +1,6 @@
 ﻿using pkgServices.pkgCollections.pkgIterator;
 using pkgServices.pkgCollections.pkgLineal.pkgInterfaces;
+using pkgServices.pkgCollections.pkgLineal.pkgLinked;
 using System;
 
 namespace pkgServices.pkgCollections.pkgLineal.pkgADT
@@ -42,7 +43,6 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
             if (attLength == 0) return null;
             T[] varArrayItems = new T[attLength];
             opGoFirst();
-
             for (int varCount = 0; varCount < attLength; varCount++)
             {
                 varArrayItems[varCount] = attCurrentItem;
@@ -103,7 +103,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
                         }
                     }
                 }
-
+                opToItems(varArray,attLength);
                 attItsOrderedAscending = prmInAscending;
                 attItsOrderedDescending = !prmInAscending;
                 return true;
@@ -153,7 +153,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
                 opSwap(prmVarArray, i + 1, prmHigh);
                 return i + 1;
             }
-
+            opToItems(varArray, attLength);
             attItsOrderedAscending = prmInAscending;
             attItsOrderedDescending = !prmInAscending;
             return true;
@@ -224,6 +224,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
                     k++;
                 }
             }
+            opToItems(varArray, attLength);
             attItsOrderedAscending = prmInAscending;
             attItsOrderedDescending = !prmInAscending;
             return true;
@@ -240,19 +241,19 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
 
             for (int i = 1; i < attLength; i++)
             {
-                T key = varArray[i];
+                T varKey = varArray[i];
                 int j = i - 1;
 
-                while (j >= 0 && ((prmInAscending && varArray[j].CompareTo(key) > 0) ||
-                                  (!prmInAscending && varArray[j].CompareTo(key) < 0)))
+                while (j >= 0 && ((prmInAscending && varArray[j].CompareTo(varKey) > 0) ||
+                                  (!prmInAscending && varArray[j].CompareTo(varKey) < 0)))
                 {
                     varArray[j + 1] = varArray[j];
                     j--;
                 }
 
-                varArray[j + 1] = key;
+                varArray[j + 1] = varKey;
             }
-
+            opToItems(varArray, attLength);
             attItsOrderedAscending = prmInAscending;
             attItsOrderedDescending = !prmInAscending;
             return true;
@@ -321,7 +322,8 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
                 }
 
                 varStart++;
-            } while (varSwapped);   
+            } while (varSwapped);
+            opToItems(varArray, attLength);
             attItsOrderedAscending = prmInAscending;
             attItsOrderedDescending = !prmInAscending;
             return true;
